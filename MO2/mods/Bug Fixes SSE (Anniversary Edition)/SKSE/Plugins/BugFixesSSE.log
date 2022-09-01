@@ -1,0 +1,22 @@
+[2022-08-06 21:58:24] [Information] BugFixesSSE.cpp(18,28): Initializing...
+{
+	"fixes": {
+		"magicEffectConditions": true,
+		"movementSpeed": true,
+		"speechExperience": {
+			"enchantedItems": true,
+			"itemStacks": true
+		}
+	}
+}
+[2022-08-06 21:58:24] [Information] BugFixesSSE.cpp(41,28): Initialized.
+{
+	"fixes": {
+		"magicEffectConditions": true,
+		"movementSpeed": true,
+		"speechExperience": {
+			"enchantedItems": true,
+			"itemStacks": true
+		}
+	}
+}
