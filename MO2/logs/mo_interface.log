@@ -1,0 +1,6 @@
+[2022-08-30 16:27:48.564 D] command line: '"C:\Skyrim Anniversary Edition\MO2\ModOrganizer.exe" '
+[2022-08-30 16:27:48.565 I] starting Mod Organizer version 2.4.4 revision 1df1ea5e in C:/Skyrim Anniversary Edition/MO2, usvfs: 0.5.6.0
+[2022-08-30 16:27:48.565 I] data path: C:/Skyrim Anniversary Edition/MO2
+[2022-08-30 16:27:48.565 I] working directory: C:/Skyrim Anniversary Edition/MO2
+[2022-08-30 16:27:48.565 D] timing: MOApplication setup() 0 ms
+[2022-08-30 16:27:49.162 I] using game plugin 'Skyrim Special Edition' ('SkyrimSE', variant (none), steam id '489830') at C:/Skyrim Anniversary Edition
