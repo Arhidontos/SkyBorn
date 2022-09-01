@@ -1,0 +1,36 @@
+
+# Fallback Filter in case no filter is defined on a source.
+Filter = ".*"
+
+# Sets how much logging will be done.
+# Possible Values are "Error", "Warn", "Info", "Debug" and "Trace"
+LogLevel = "Info"
+
+# Anniversary Edition used 2 different logo.nif files.
+# With this flag the normal logo.nif get also copied to logo01ae.nif.
+AnniversaryWorkaroud = true
+
+# The Directory the Files get Copied to.
+#
+# (Mainly usefull for ModOrgaizer users to write in a seperate mod instead of overwriting current files)
+# Can be either a relative or an absolute path.
+# Relative pathts need to be relative to the base skyrim directory.
+Destination = ".\\data\\"
+
+# Each [[Source]] block defines a new Source Directory
+[[Source]]
+
+# The Directory your files get copied from.
+Directory = ".\\data\\mainmenuwallpapers"
+
+# Filters what files will be copied
+# (see: https://en.wikipedia.org/wiki/Regular_expression )
+#
+# Filter will be applied to a relative path based on the skyrim/data directory so all models would be something like 'models\\.*'
+# in case no filter is given the Fallback Filter (see top of file) is used.
+
+# Filter =".*"
+
+# [[Source]]
+# Directory = ".\\data\\mainmenumusic"
+# Filter =".*"
