@@ -1,0 +1,21 @@
+<?xml version='1.0'?><!-- Game is either sse, tesv, or fo4 -->
+<PapyrusProject xmlns="PapyrusProject.xsd" 
+    Flags="TESV_Papyrus_Flags.flg" 
+    Game="sse" 
+    Output="Scripts" 
+    Optimize="false" 
+    Release="false" 
+    Final="false">
+    <Imports>
+        <Import>.\Scripts\Source</Import>
+        <Import>D:\Games\The Elder Scrolls V Skyrim - Anniversary Edition\Data\Scripts\Source</Import>
+        <Import>D:\Games\The Elder Scrolls V Skyrim - Anniversary Edition\MO2\mods\Requiem - The Roleplaying Overhaul\Scripts/Source</Import>
+        <Import>D:\Games\The Elder Scrolls V Skyrim - Anniversary Edition\MO2\mods\JContainers SE\scripts\source</Import>
+        <Import>D:\Games\The Elder Scrolls V Skyrim - Anniversary Edition\MO2\mods\SkyUILib\Scripts\Source</Import>
+        <Import>D:\Games\The Elder Scrolls V Skyrim - Anniversary Edition\MO2\mods\UIExtensions\Scripts\Source</Import>
+        <Import>D:\Games\The Elder Scrolls V Skyrim - Anniversary Edition\MO2\mods\powerofthree's Papyrus Extender\Scripts\Source</Import>
+    </Imports>
+    <Folders>
+        <Folder>.\Scripts\Source</Folder>
+    </Folders>
+</PapyrusProject>
