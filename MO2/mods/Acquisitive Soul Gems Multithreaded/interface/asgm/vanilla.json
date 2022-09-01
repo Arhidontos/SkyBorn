@@ -1,0 +1,17 @@
+{
+	"stringList" : 
+	{
+		"azurasstar" : [ "408359:Skyrim.esm" ],
+		"black" : [ "189696:Skyrim.esm" ],
+		"blackstar" : [ "408361:Skyrim.esm" ],
+		"common" : [ "189670:Skyrim.esm" ],
+		"filledcommon" : [ "189683:Skyrim.esm" ],
+		"filledgreater" : [ "189691:Skyrim.esm" ],
+		"filledlesser" : [ "189669:Skyrim.esm" ],
+		"filledpetty" : [ "189667:Skyrim.esm" ],
+		"grand" : [ "189692:Skyrim.esm" ],
+		"greater" : [ "189684:Skyrim.esm" ],
+		"lesser" : [ "189668:Skyrim.esm" ],
+		"petty" : [ "189666:Skyrim.esm" ]
+	}
+}
