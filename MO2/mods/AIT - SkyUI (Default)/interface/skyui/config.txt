@@ -1,0 +1,2004 @@
+; =====================================================================================================================
+[Input]
+; =====================================================================================================================
+controls.pc.search = 57 ; SPACE
+controls.pc.switchTab = 56 ; ALT
+controls.pc.equipMode = 42 ; LSHIFT
+
+controls.gamepad.switchTab = 271 ; BACK
+controls.gamepad.prevColumn = 274 ; LEFT_SHOULDER
+controls.gamepad.nextColumn = 275 ; RIGHT_SHOULDER
+controls.gamepad.sortOrder = 272 ; LEFT_THUMB
+
+
+; =====================================================================================================================
+[SearchBox]
+; =====================================================================================================================
+autoupdate.enable = true
+autoupdate.delay = 0
+
+
+; =====================================================================================================================
+[ItemInfo]
+; =====================================================================================================================
+itemcard.align = center
+itemcard.xOffset = -35
+itemcard.yOffset = 0
+
+
+; =====================================================================================================================
+[ItemList]
+; =====================================================================================================================
+quantityMenu.minCount = 6 ; Number of items required to trigger quantity dialog. 0 is disabled
+
+
+; =====================================================================================================================
+[Appearance]
+; =====================================================================================================================
+icons.category.source = 'skyui/icons_category_psychosteve.swf'
+
+icons.item.source = 'skyui/icons_item_psychosteve.swf'
+icons.item.noColor = false
+icons.item.showStolen = true
+
+colors.text.enabled = 0xffffff
+colors.stolen.enabled = 0xffffff
+colors.negative.enabled = 0xff0000
+colors.text.disabled = 0x4c4c4c
+colors.stolen.disabled = 0x4c4c4c
+colors.negative.disabled = 0x800000
+
+
+; =====================================================================================================================
+[ListLayout]
+; =====================================================================================================================
+vars.a_textBorder.value = <0, 0, 1.1, 0> ; left right top bottom
+vars.n_iconSize.value = 18
+
+defaults.entryWidth = 530
+
+; Default text format defaults -------------------------------------------------------
+defaults.entry.textFormat.font = '$EverywhereMediumFont'
+defaults.entry.textFormat.align = right
+defaults.entry.textFormat.bold = false
+defaults.entry.textFormat.italic = false
+defaults.entry.textFormat.underline = false
+defaults.entry.textFormat.size = 14
+defaults.entry.textFormat.letterSpacing = 0.8
+defaults.entry.textFormat.kerning = false
+defaults.entry.textFormat.leftMargin = 0
+defaults.entry.textFormat.rightMargin = 0
+defaults.entry.textFormat.indent = 0
+defaults.entry.textFormat.leading = 0
+
+defaults.label.textFormat.font = '$EverywhereMediumFont'
+defaults.label.textFormat.align = right
+defaults.label.textFormat.bold = false
+defaults.label.textFormat.italic = false
+defaults.label.textFormat.underline = false
+defaults.label.textFormat.size = 12
+defaults.label.textFormat.letterSpacing = 0.8
+defaults.label.textFormat.kerning = false
+defaults.label.textFormat.leftMargin = 0
+defaults.label.textFormat.rightMargin = 0
+defaults.label.textFormat.indent = 0
+defaults.label.textFormat.leading = 0
+
+
+; ICONS -------------------------------------------------------
+columns.equipColumn.type = EQUIP_ICON
+columns.equipColumn.passive = true
+columns.equipColumn.states = 1
+columns.equipColumn.indent = -28
+columns.equipColumn.icon.size = n_iconSize
+columns.equipColumn.border = <0, 10, 3, 3> ; left right top bottom
+columns.equipColumn.state1.label.text = ' '
+
+columns.iconColumn.type = ITEM_ICON
+columns.iconColumn.states = 2
+columns.iconColumn.icon.size = n_iconSize
+columns.iconColumn.border = <0, 3, 3, 3> ; left right top bottom
+
+columns.iconColumn.state1.label.text = ' '
+;jn: Add timeRemaining (only affects Active Effects view) and isEquipped
+columns.iconColumn.state1.sortAttributes = <timeRemaining, isEquipped, type, formType, subType, weightClass, bipedSlots, material, infoDamage, infoBaseDamage, infoReach, infoSpeed, infoStagger, infoArmor, infoSchoolName, actorValue, resistance, skillLevel, magnitude, duration, text>
+;jn: Don't forget to add a corresponding sortOption for each added sortAttribute
+columns.iconColumn.state1.sortOptions = <{ASCENDING | NUMERIC}, {DESCENDING | NUMERIC}, {ASCENDING | NUMERIC}, {ASCENDING | NUMERIC}, {ASCENDING | NUMERIC}, {ASCENDING | NUMERIC}, {ASCENDING | NUMERIC}, {ASCENDING | NUMERIC}, {DESCENDING | NUMERIC}, {DESCENDING | NUMERIC}, {DESCENDING | NUMERIC}, {DESCENDING | NUMERIC}, {DESCENDING | NUMERIC}, {DESCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}, {ASCENDING | NUMERIC}, {ASCENDING | NUMERIC}, {DESCENDING | NUMERIC}, {DESCENDING | NUMERIC}, {DESCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+
+columns.iconColumn.state2.label.text = ' '
+columns.iconColumn.state2.label.arrowDown = true
+;jn: Add timeRemaining
+columns.iconColumn.state2.sortAttributes = <timeRemaining, type, formType, subType, weightClass, bipedSlots, material, infoDamage, infoBaseDamage, infoReach, infoSpeed, infoStagger, infoArmor, infoSchoolName, actorValue, resistance, skillLevel, magnitude, duration, text>
+columns.iconColumn.state2.sortOptions = <{DESCENDING | NUMERIC}, {DESCENDING | NUMERIC}, {DESCENDING | NUMERIC}, {DESCENDING | NUMERIC}, {DESCENDING | NUMERIC}, {DESCENDING | NUMERIC}, {DESCENDING | NUMERIC}, {ASCENDING | NUMERIC}, {ASCENDING | NUMERIC}, {ASCENDING | NUMERIC}, {ASCENDING | NUMERIC}, {ASCENDING | NUMERIC}, {ASCENDING | NUMERIC}, {DESCENDING | CASEINSENSITIVE}, {DESCENDING | NUMERIC}, {DESCENDING | NUMERIC}, {ASCENDING | NUMERIC}, {ASCENDING | NUMERIC}, {ASCENDING | NUMERIC}, {DESCENDING | CASEINSENSITIVE}>
+
+; ITEM NAME COLUMN -------------------------------------------------------
+columns.itemNameColumn.type = NAME
+columns.itemNameColumn.name = '$NAME'
+columns.itemNameColumn.states = 4
+columns.itemNameColumn.weight = 1.0
+columns.itemNameColumn.border = a_textBorder
+columns.itemNameColumn.label.textFormat.align = left
+
+columns.itemNameColumn.state1.label.text = '$NAME'
+columns.itemNameColumn.state1.entry.text = @text
+columns.itemNameColumn.state1.sortOptions = {ASCENDING | CASEINSENSITIVE}
+
+columns.itemNameColumn.state2.label.text = '$EQUIPPED'
+columns.itemNameColumn.state2.entry.text = @text
+columns.itemNameColumn.state2.sortAttributes = <isEquipped, equipState, text>
+columns.itemNameColumn.state2.sortOptions = <{DESCENDING | NUMERIC}, {DESCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+columns.itemNameColumn.state2.playerOnly = true
+
+columns.itemNameColumn.state3.label.text = '$STOLEN'
+columns.itemNameColumn.state3.entry.text = @text
+columns.itemNameColumn.state3.sortAttributes = <isStolen, text>
+columns.itemNameColumn.state3.sortOptions = <{DESCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+columns.itemNameColumn.state3.playerOnly = true
+
+columns.itemNameColumn.state4.label.text = '$ENCHANTED'
+columns.itemNameColumn.state4.entry.text = @text
+columns.itemNameColumn.state4.sortAttributes = <isEnchanted, text>
+columns.itemNameColumn.state4.sortOptions = <{DESCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+
+
+; ARMOR RATING COLUMN -------------------------------------------------------
+columns.arColumn.type = TEXT
+columns.arColumn.name = '$ARMOR'
+columns.arColumn.states = 2
+columns.arColumn.width = 0.06
+columns.arColumn.border = a_textBorder
+
+columns.arColumn.state1.label.text = '$ARM'
+columns.arColumn.state1.label.arrowDown = true
+columns.arColumn.state1.entry.text = @infoArmor
+columns.arColumn.state1.sortAttributes = <infoArmor, text>
+columns.arColumn.state1.sortOptions = <{DESCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+
+columns.arColumn.state2.label.text = '$ARM'
+columns.arColumn.state2.entry.text = @infoArmor
+columns.arColumn.state2.sortAttributes = <infoArmor, text>
+columns.arColumn.state2.sortOptions = <{ASCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+
+
+; SUBTYPE COLUMN -------------------------------------------------------
+columns.subTypeColumn.type = TEXT
+columns.subTypeColumn.name = '$TYPE'
+columns.subTypeColumn.states = 2
+columns.subTypeColumn.width = 0.15
+columns.subTypeColumn.border = a_textBorder
+
+columns.subTypeColumn.state1.label.text = '$TYPE'
+columns.subTypeColumn.state1.entry.text = @subTypeDisplay
+columns.subTypeColumn.state1.sortAttributes = <subTypeDisplay, text>
+columns.subTypeColumn.state1.sortOptions = <{ASCENDING | CASEINSENSITIVE}, {ASCENDING | CASEINSENSITIVE}>
+
+columns.subTypeColumn.state2.label.text = '$TYPE'
+columns.subTypeColumn.state2.entry.text = @subTypeDisplay
+columns.subTypeColumn.state2.label.arrowDown = true
+columns.subTypeColumn.state2.sortAttributes = <subTypeDisplay, text>
+columns.subTypeColumn.state2.sortOptions = <{DESCENDING | CASEINSENSITIVE}, {ASCENDING | CASEINSENSITIVE}>
+
+
+; MATERIAL COLUMN -------------------------------------------------------
+columns.materialColumn.type = TEXT
+columns.materialColumn.name = '$MATERIAL'
+columns.materialColumn.states = 2
+columns.materialColumn.width = 0.10
+columns.materialColumn.border = a_textBorder
+columns.materialColumn.hidden = true
+
+columns.materialColumn.state1.label.text = '$MAT'
+columns.materialColumn.state1.entry.text = @materialDisplay
+columns.materialColumn.state1.sortAttributes = <materialDisplay, text>
+columns.materialColumn.state1.sortOptions = <{ASCENDING | CASEINSENSITIVE}, {ASCENDING | CASEINSENSITIVE}>
+
+columns.materialColumn.state2.label.text = '$MAT'
+columns.materialColumn.state2.entry.text = @materialDisplay
+columns.materialColumn.state2.label.arrowDown = true
+columns.materialColumn.state2.sortAttributes = <materialDisplay, text>
+columns.materialColumn.state2.sortOptions = <{DESCENDING | CASEINSENSITIVE}, {ASCENDING | CASEINSENSITIVE}>
+
+
+; SLOT COLUMN -------------------------------------------------------
+columns.slotsColumn.type = TEXT
+columns.slotsColumn.name = '$SLOT'
+columns.slotsColumn.states = 2
+columns.slotsColumn.width = 0.10
+columns.slotsColumn.border = a_textBorder
+columns.slotsColumn.hidden = true
+
+columns.slotsColumn.state1.label.text = '$SLOT'
+columns.slotsColumn.state1.entry.text = @bipedSlotsDisplay
+columns.slotsColumn.state1.sortAttributes = <bipedSlotsDisplay, text>
+columns.slotsColumn.state1.sortOptions = <{ASCENDING | CASEINSENSITIVE}, {ASCENDING | CASEINSENSITIVE}>
+
+columns.slotsColumn.state2.label.text = '$SLOT'
+columns.slotsColumn.state2.entry.text = @bipedSlotsDisplay
+columns.slotsColumn.state2.entry.arrowDown = true
+columns.slotsColumn.state2.sortAttributes = <bipedSlotsDisplay, text>
+columns.slotsColumn.state2.sortOptions = <{DESCENDING | CASEINSENSITIVE}, {ASCENDING | CASEINSENSITIVE}>
+
+
+; CLASS COLUMN -------------------------------------------------------
+columns.classColumn.type = TEXT
+columns.classColumn.name = '$CLASS'
+columns.classColumn.states = 2
+columns.classColumn.width = 0.10
+columns.classColumn.border = a_textBorder
+
+columns.classColumn.state1.label.text = '$CLASS'
+columns.classColumn.state1.entry.text = @weightClassDisplay
+columns.classColumn.state1.sortAttributes = <weightClassDisplay, text>
+columns.classColumn.state1.sortOptions = <{ASCENDING | CASEINSENSITIVE}, {ASCENDING | CASEINSENSITIVE}>
+
+columns.classColumn.state2.label.text = '$CLASS'
+columns.classColumn.state2.entry.text = @weightClassDisplay
+columns.classColumn.state2.label.arrowDown = true
+columns.classColumn.state2.sortAttributes = <weightClassDisplay, text>
+columns.classColumn.state2.sortOptions = <{DESCENDING | CASEINSENSITIVE}, {ASCENDING | CASEINSENSITIVE}>
+
+
+; MAGNITUDE COLUMN -------------------------------------------------------
+columns.magnitudeColumn.type = TEXT
+columns.magnitudeColumn.name = '$MAGNITUDE'
+columns.magnitudeColumn.states = 2
+columns.magnitudeColumn.width = 0.06
+columns.magnitudeColumn.border = a_textBorder
+
+columns.magnitudeColumn.state1.label.text = '$MAG'
+columns.magnitudeColumn.state1.label.arrowDown = true
+columns.magnitudeColumn.state1.entry.text = @magnitude
+columns.magnitudeColumn.state1.sortAttributes = <magnitude, text>
+columns.magnitudeColumn.state1.sortOptions = <{DESCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+
+columns.magnitudeColumn.state2.label.text = '$MAG'
+columns.magnitudeColumn.state2.entry.text = @magnitude
+columns.magnitudeColumn.state2.sortAttributes = <magnitude, text>
+columns.magnitudeColumn.state2.sortOptions = <{ASCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+
+
+; DURATION COLUMN -------------------------------------------------------
+columns.durationColumn.type = TEXT
+columns.durationColumn.name = '$TIME'
+columns.durationColumn.states = 2
+columns.durationColumn.width = 0.06
+columns.durationColumn.border = a_textBorder
+
+columns.durationColumn.state1.label.text = '$TIME'
+columns.durationColumn.state1.label.arrowDown = true
+columns.durationColumn.state1.entry.text = @duration
+columns.durationColumn.state1.sortAttributes = <duration, text>
+columns.durationColumn.state1.sortOptions = <{DESCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+
+columns.durationColumn.state2.label.text = '$TIME'
+columns.durationColumn.state2.entry.text = @duration
+columns.durationColumn.state2.sortAttributes = <duration, text>
+columns.durationColumn.state2.sortOptions = <{ASCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+
+
+; MAGIC MAGNITUDE COLUMN -------------------------------------------------------
+columns.magicMagnitudeColumn.type = TEXT
+columns.magicMagnitudeColumn.name = '$MAGNITUDE'
+columns.magicMagnitudeColumn.states = 2
+columns.magicMagnitudeColumn.width = 0.15
+columns.magicMagnitudeColumn.border = a_textBorder
+
+columns.magicMagnitudeColumn.state1.label.text = '$MAG'
+columns.magicMagnitudeColumn.state1.label.arrowDown = true
+columns.magicMagnitudeColumn.state1.entry.text = @magnitude
+columns.magicMagnitudeColumn.state1.sortAttributes = <magnitude, text>
+columns.magicMagnitudeColumn.state1.sortOptions = <{DESCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+
+columns.magicMagnitudeColumn.state2.label.text = '$MAG'
+columns.magicMagnitudeColumn.state2.entry.text = @magnitude
+columns.magicMagnitudeColumn.state2.sortAttributes = <magnitude, text>
+columns.magicMagnitudeColumn.state2.sortOptions = <{ASCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+
+
+; MAGIC DURATION COLUMN -------------------------------------------------------
+columns.magicDurationColumn.type = TEXT
+columns.magicDurationColumn.name = '$TIME'
+columns.magicDurationColumn.states = 2
+columns.magicDurationColumn.width = 0.15
+columns.magicDurationColumn.border = a_textBorder
+
+columns.magicDurationColumn.state1.label.text = '$TIME'
+columns.magicDurationColumn.state1.label.arrowDown = true
+columns.magicDurationColumn.state1.entry.text = @duration
+columns.magicDurationColumn.state1.sortAttributes = <duration, text>
+columns.magicDurationColumn.state1.sortOptions = <{DESCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+
+columns.magicDurationColumn.state2.label.text = '$TIME'
+columns.magicDurationColumn.state2.entry.text = @duration
+columns.magicDurationColumn.state2.sortAttributes = <duration, text>
+columns.magicDurationColumn.state2.sortOptions = <{ASCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+
+
+; DAMAGE COLUMN -------------------------------------------------------
+columns.damageColumn.type = TEXT
+columns.damageColumn.name = '$DAMAGE'
+columns.damageColumn.states = 2
+columns.damageColumn.width = 0.06
+columns.damageColumn.border = a_textBorder
+
+columns.damageColumn.state1.label.text = '$DAM'
+columns.damageColumn.state1.label.arrowDown = true
+columns.damageColumn.state1.entry.text = @infoDamage
+columns.damageColumn.state1.sortAttributes = <infoDamage, text>
+columns.damageColumn.state1.sortOptions = <{DESCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+
+columns.damageColumn.state2.label.text = '$DAM'
+columns.damageColumn.state2.entry.text = @infoDamage
+columns.damageColumn.state2.sortAttributes = <infoDamage, text>
+columns.damageColumn.state2.sortOptions = <{ASCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+
+
+; BASE DAMAGE COLUMN -------------------------------------------------------
+columns.basedamageColumn.type = TEXT
+columns.basedamageColumn.name = '$BASE DAMAGE'
+columns.basedamageColumn.states = 2
+columns.basedamageColumn.width = 0.06
+columns.basedamageColumn.border = a_textBorder
+columns.basedamageColumn.hidden = true
+
+columns.basedamageColumn.state1.label.text = '$B.DAM'
+columns.basedamageColumn.state1.label.arrowDown = true
+columns.basedamageColumn.state1.entry.text = @infoBaseDamage
+columns.basedamageColumn.state1.sortAttributes = <infoBaseDamage, text>
+columns.basedamageColumn.state1.sortOptions = <{DESCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+
+columns.basedamageColumn.state2.label.text = '$B.DAM'
+columns.basedamageColumn.state2.entry.text = @infoBaseDamage
+columns.basedamageColumn.state2.sortAttributes = <infoBaseDamage, text>
+columns.basedamageColumn.state2.sortOptions = <{ASCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+
+
+; REACH COLUMN -------------------------------------------------------
+columns.reachColumn.type = TEXT
+columns.reachColumn.name = '$REACH'
+columns.reachColumn.states = 2
+columns.reachColumn.width = 0.06
+columns.reachColumn.border = a_textBorder
+columns.reachColumn.hidden = true
+
+columns.reachColumn.state1.label.text = '$RCH'
+columns.reachColumn.state1.label.arrowDown = true
+columns.reachColumn.state1.entry.text = @infoReach
+columns.reachColumn.state1.sortAttributes = <infoReach, text>
+columns.reachColumn.state1.sortOptions = <{DESCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+
+columns.reachColumn.state2.label.text = '$RCH'
+columns.reachColumn.state2.entry.text = @infoReach
+columns.reachColumn.state2.sortAttributes = <infoReach, text>
+columns.reachColumn.state2.sortOptions = <{ASCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+
+
+; SPEED COLUMN -------------------------------------------------------
+columns.speedColumn.type = TEXT
+columns.speedColumn.name = '$SPEED'
+columns.speedColumn.states = 2
+columns.speedColumn.width = 0.06
+columns.speedColumn.border = a_textBorder
+columns.speedColumn.hidden = true
+
+columns.speedColumn.state1.label.text = '$SPD'
+columns.speedColumn.state1.label.arrowDown = true
+columns.speedColumn.state1.entry.text = @infoSpeed
+columns.speedColumn.state1.sortAttributes = <infoSpeed, text>
+columns.speedColumn.state1.sortOptions = <{DESCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+
+columns.speedColumn.state2.label.text = '$SPD'
+columns.speedColumn.state2.entry.text = @infoSpeed
+columns.speedColumn.state2.sortAttributes = <infoSpeed, text>
+columns.speedColumn.state2.sortOptions = <{ASCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+
+
+; STAGGER COLUMN -------------------------------------------------------
+columns.staggerColumn.type = TEXT
+columns.staggerColumn.name = '$STAGGER'
+columns.staggerColumn.states = 2
+columns.staggerColumn.width = 0.06
+columns.staggerColumn.border = a_textBorder
+columns.staggerColumn.hidden = true
+
+columns.staggerColumn.state1.label.text = '$STGR'
+columns.staggerColumn.state1.label.arrowDown = true
+columns.staggerColumn.state1.entry.text = @infoStagger
+columns.staggerColumn.state1.sortAttributes = <infoStagger, text>
+columns.staggerColumn.state1.sortOptions = <{DESCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+
+columns.staggerColumn.state2.label.text = '$STGR'
+columns.staggerColumn.state2.entry.text = @infoStagger
+columns.staggerColumn.state2.sortAttributes = <infoStagger, text>
+columns.staggerColumn.state2.sortOptions = <{ASCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+
+
+; WEIGHT COLUMN -------------------------------------------------------
+columns.weightColumn.type = TEXT
+columns.weightColumn.name = '$WEIGHT'
+columns.weightColumn.states = 2
+columns.weightColumn.width = 0.06
+columns.weightColumn.border = a_textBorder
+
+columns.weightColumn.state1.label.text = '$WGT'
+columns.weightColumn.state1.label.arrowDown = true
+columns.weightColumn.state1.entry.text = @infoWeight
+columns.weightColumn.state1.sortAttributes = <infoWeight, text>
+columns.weightColumn.state1.sortOptions = <{DESCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+
+columns.weightColumn.state2.label.text = '$WGT'
+columns.weightColumn.state2.entry.text = @infoWeight
+columns.weightColumn.state2.sortAttributes = <infoWeight, text>
+columns.weightColumn.state2.sortOptions = <{ASCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+
+
+; TOTAL WEIGHT COLUMN -------------------------------------------------------
+columns.totalWeightColumn.type = TEXT
+columns.totalWeightColumn.name = '$TOTAL WEIGHT'
+columns.totalWeightColumn.states = 2
+columns.totalWeightColumn.width = 0.06
+columns.totalWeightColumn.border = a_textBorder
+columns.totalWeightColumn.hidden = true
+
+columns.totalWeightColumn.state1.label.text = '$T.WGT'
+columns.totalWeightColumn.state1.label.arrowDown = true
+columns.totalWeightColumn.state1.entry.text = @infoTotalWeight
+columns.totalWeightColumn.state1.sortAttributes = <infoTotalWeight, text>
+columns.totalWeightColumn.state1.sortOptions = <{DESCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+
+columns.totalWeightColumn.state2.label.text = '$T.WGT'
+columns.totalWeightColumn.state2.entry.text = @infoTotalWeight
+columns.totalWeightColumn.state2.sortAttributes = <infoTotalWeight, text>
+columns.totalWeightColumn.state2.sortOptions = <{ASCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+
+
+; VALUE COLUMN -------------------------------------------------------
+columns.valueColumn.type = TEXT
+columns.valueColumn.name = '$VALUE'
+columns.valueColumn.states = 2
+columns.valueColumn.width = 0.06
+columns.valueColumn.border = a_textBorder
+
+columns.valueColumn.state1.label.text = '$VAL'
+columns.valueColumn.state1.label.arrowDown = true
+columns.valueColumn.state1.entry.text = @infoValue
+columns.valueColumn.state1.sortAttributes = <infoValue, text>
+columns.valueColumn.state1.sortOptions = <{DESCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+
+columns.valueColumn.state2.label.text = '$VAL'
+columns.valueColumn.state2.entry.text = @infoValue
+columns.valueColumn.state2.sortAttributes = <infoValue, text>
+columns.valueColumn.state2.sortOptions = <{ASCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+
+
+; VALUE/WEIGHT COLUMN -------------------------------------------------------
+columns.valueWeightColumn.type = TEXT
+columns.valueWeightColumn.name = '$VALUE/WEIGHT'
+columns.valueWeightColumn.states = 2
+columns.valueWeightColumn.width = 0.06
+columns.valueWeightColumn.border = a_textBorder
+;jn: Show Value/Weight column by default
+columns.valueWeightColumn.hidden = false
+
+columns.valueWeightColumn.state1.label.text = '$V/W'
+columns.valueWeightColumn.state1.label.arrowDown = true
+columns.valueWeightColumn.state1.entry.text = @infoValueWeight
+columns.valueWeightColumn.state1.sortAttributes = <infoValueWeight, text>
+columns.valueWeightColumn.state1.sortOptions = <{DESCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+
+columns.valueWeightColumn.state2.label.text = '$V/W'
+columns.valueWeightColumn.state2.entry.text = @infoValueWeight
+columns.valueWeightColumn.state2.sortAttributes = <infoValueWeight, text>
+columns.valueWeightColumn.state2.sortOptions = <{ASCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+
+
+; MAGIC NAME COLUMN -------------------------------------------------------
+columns.magicNameColumn.type = NAME
+columns.magicNameColumn.name = '$NAME'
+columns.magicNameColumn.states = 2
+columns.magicNameColumn.weight = 1.0
+columns.magicNameColumn.border = a_textBorder
+columns.magicNameColumn.label.textFormat.align = left
+
+columns.magicNameColumn.state1.label.text = '$NAME'
+columns.magicNameColumn.state1.entry.text = @text
+columns.magicNameColumn.state1.sortOptions = {ASCENDING | CASEINSENSITIVE}
+
+columns.magicNameColumn.state2.label.text = '$FAVORITE'
+columns.magicNameColumn.state2.entry.text = @text
+columns.magicNameColumn.state2.sortAttributes = <favorite, text>
+columns.magicNameColumn.state2.sortOptions = <{DESCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+columns.magicNameColumn.state2.playerOnly = true
+
+
+; SPELL COST COLUMN -------------------------------------------
+columns.spellCostColumn.type = TEXT
+columns.spellCostColumn.name = '$SPELL COST'
+columns.spellCostColumn.states = 2
+columns.spellCostColumn.width = 0.15
+columns.spellCostColumn.border = a_textBorder
+
+columns.spellCostColumn.state1.label.text = '$COST'
+columns.spellCostColumn.state1.label.arrowDown = true
+columns.spellCostColumn.state1.entry.text = @spellCostDisplay
+columns.spellCostColumn.state1.sortAttributes = <infoSpellCost, text>
+columns.spellCostColumn.state1.sortOptions = <{DESCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+
+columns.spellCostColumn.state2.label.text = '$COST'
+columns.spellCostColumn.state2.label.arrowDown = false
+columns.spellCostColumn.state2.entry.text = @spellCostDisplay
+columns.spellCostColumn.state2.sortAttributes = <infoSpellCost, text>
+columns.spellCostColumn.state2.sortOptions = <{ASCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+
+
+; WORD 1 COLUMN -------------------------------------------
+columns.word0Column.type = TEXT
+columns.word0Column.name = '$FIRST WORD'
+columns.word0Column.states = 2
+columns.word0Column.width = 0.2
+columns.word0Column.border = a_textBorder
+
+columns.word0Column.state1.label.text = '$FIRST WORD'
+columns.word0Column.state1.label.arrowDown = true
+columns.word0Column.state1.entry.text = @word0
+columns.word0Column.state1.sortAttributes = <word0Recharge, text>
+columns.word0Column.state1.sortOptions = <{DESCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+columns.word0Column.state1.colorAttribute = word0Color
+
+columns.word0Column.state2.label.text = '$FIRST WORD'
+columns.word0Column.state2.label.arrowDown = false
+columns.word0Column.state2.entry.text = @word0
+columns.word0Column.state2.sortAttributes = <word0Recharge, text>
+columns.word0Column.state2.sortOptions = <{ASCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+columns.word0Column.state2.colorAttribute = word0Color
+
+
+; WORD 2 COLUMN -------------------------------------------
+columns.word1Column.type = TEXT
+columns.word1Column.name = '$SECOND WORD'
+columns.word1Column.states = 2
+columns.word1Column.width = 0.2
+columns.word1Column.border = a_textBorder
+
+columns.word1Column.state1.label.text = '$SECOND WORD'
+columns.word1Column.state1.label.arrowDown = true
+columns.word1Column.state1.entry.text = @word1
+columns.word1Column.state1.sortAttributes = <word1Recharge, text>
+columns.word1Column.state1.sortOptions = <{DESCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+columns.word1Column.state1.colorAttribute = word1Color
+
+columns.word1Column.state2.label.text = '$SECOND WORD'
+columns.word1Column.state2.label.arrowDown = false
+columns.word1Column.state2.entry.text = @word1
+columns.word1Column.state2.sortAttributes = <word1Recharge, text>
+columns.word1Column.state2.sortOptions = <{ASCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+columns.word1Column.state2.colorAttribute = word1Color
+
+
+; WORD 3 COLUMN -------------------------------------------
+columns.word2Column.type = TEXT
+columns.word2Column.name = '$THIRD WORD'
+columns.word2Column.states = 2
+columns.word2Column.width = 0.2
+columns.word2Column.border = a_textBorder
+
+columns.word2Column.state1.label.text = '$THIRD WORD'
+columns.word2Column.state1.label.arrowDown = true
+columns.word2Column.state1.entry.text = @word2
+columns.word2Column.state1.sortAttributes = <word2Recharge, text>
+columns.word2Column.state1.sortOptions = <{DESCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+columns.word2Column.state1.colorAttribute = word2Color
+
+columns.word2Column.state2.label.text = '$THIRD WORD'
+columns.word2Column.state2.label.arrowDown = false
+columns.word2Column.state2.entry.text = @word2
+columns.word2Column.state2.sortAttributes = <word2Recharge, text>
+columns.word2Column.state2.sortOptions = <{ASCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+columns.word2Column.state2.colorAttribute = word2Color
+
+
+; SCHOOL COLUMN -------------------------------------------
+columns.schoolColumn.type = TEXT
+columns.schoolColumn.name = '$SCHOOL'
+columns.schoolColumn.states = 2
+columns.schoolColumn.width = 0.15
+columns.schoolColumn.border = a_textBorder
+
+columns.schoolColumn.state1.label.text = '$SCHOOL'
+columns.schoolColumn.state1.label.arrowDown = false
+columns.schoolColumn.state1.entry.text = @infoSchoolName
+columns.schoolColumn.state1.sortAttributes = <infoSchoolName, text>
+columns.schoolColumn.state1.sortOptions = <{ASCENDING | CASEINSENSITIVE}, {ASCENDING | CASEINSENSITIVE}>
+
+columns.schoolColumn.state2.label.text = '$SCHOOL'
+columns.schoolColumn.state2.label.arrowDown = true
+columns.schoolColumn.state2.entry.text = @infoSchoolName
+columns.schoolColumn.state2.sortAttributes = <infoSchoolName, text>
+columns.schoolColumn.state2.sortOptions = <{DESCENDING | CASEINSENSITIVE}, {ASCENDING | CASEINSENSITIVE}>
+
+
+; LEVEL COLUMN -------------------------------------------
+columns.levelColumn.type = TEXT
+columns.levelColumn.name = '$SKILL LEVEL'
+columns.levelColumn.states = 2
+columns.levelColumn.width = 0.15
+columns.levelColumn.border = a_textBorder
+
+columns.levelColumn.state1.label.text = '$LEVEL'
+columns.levelColumn.state1.label.arrowDown = false
+columns.levelColumn.state1.entry.text = @infoCastLevel
+columns.levelColumn.state1.sortAttributes = <skillLevel, text>
+columns.levelColumn.state1.sortOptions = <{ASCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+
+columns.levelColumn.state2.label.text = '$LEVEL'
+columns.levelColumn.state2.label.arrowDown = true
+columns.levelColumn.state2.entry.text = @infoCastLevel
+columns.levelColumn.state2.sortAttributes = <skillLevel, text>
+columns.levelColumn.state2.sortOptions = <{DESCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+
+
+; TIME REMAINING COLUMN -------------------------------------------
+columns.timeRemainingColumn.type = TEXT
+columns.timeRemainingColumn.name = '$TIME LEFT'
+columns.timeRemainingColumn.states = 2
+columns.timeRemainingColumn.width = 0.333
+columns.timeRemainingColumn.label.textFormat.align = center
+columns.timeRemainingColumn.entry.textFormat.align = center
+
+columns.timeRemainingColumn.state1.label.text = '$TIME LEFT'
+columns.timeRemainingColumn.state1.label.arrowDown = false
+columns.timeRemainingColumn.state1.entry.text = @timeRemainingDisplay
+columns.timeRemainingColumn.state1.sortAttributes = <timeRemaining, text>
+columns.timeRemainingColumn.state1.sortOptions = <{ASCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+
+columns.timeRemainingColumn.state2.label.text = '$TIME LEFT'
+columns.timeRemainingColumn.state2.label.arrowDown = true
+columns.timeRemainingColumn.state2.entry.text = @timeRemainingDisplay
+columns.timeRemainingColumn.state2.sortAttributes = <timeRemaining, text>
+columns.timeRemainingColumn.state2.sortOptions = <{DESCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+
+
+; EFFECT ITEM COLUMN -------------------------------------------
+columns.effectItemColumn.type = TEXT
+columns.effectItemColumn.name = '$SOURCE'
+columns.effectItemColumn.states = 2
+columns.effectItemColumn.width = 0.333
+columns.effectItemColumn.label.textFormat.align = right
+columns.effectItemColumn.entry.textFormat.align = right
+
+columns.effectItemColumn.state1.label.text = '$SOURCE'
+columns.effectItemColumn.state1.label.arrowDown = false
+columns.effectItemColumn.state1.entry.text = @cardName
+columns.effectItemColumn.state1.sortAttributes = <cardName, text>
+columns.effectItemColumn.state1.sortOptions = <{ASCENDING | CASEINSENSITIVE}, {ASCENDING | CASEINSENSITIVE}>
+
+columns.effectItemColumn.state2.label.text = '$SOURCE'
+columns.effectItemColumn.state2.label.arrowDown = true
+columns.effectItemColumn.state2.entry.text = @cardName
+columns.effectItemColumn.state2.sortAttributes = <cardName, text>
+columns.effectItemColumn.state2.sortOptions = <{DESCENDING | CASEINSENSITIVE}, {ASCENDING | CASEINSENSITIVE}>
+
+
+; CRAFT NAME COLUMN -------------------------------------------------------
+columns.craftNameColumn.type = NAME
+columns.craftNameColumn.name = '$NAME'
+columns.craftNameColumn.states = 1
+columns.craftNameColumn.weight = 1.0
+columns.craftNameColumn.border = a_textBorder
+columns.craftNameColumn.label.textFormat.align = left
+
+columns.craftNameColumn.state1.label.text = '$NAME'
+columns.craftNameColumn.state1.entry.text = @text
+columns.craftNameColumn.state1.sortAttributes = <text>
+columns.craftNameColumn.state1.sortOptions = <{ASCENDING | CASEINSENSITIVE}>
+
+; DISENCHANT EFFECT COLUMN -------------------------------------------------------
+columns.disenchantEffectColumn.type = TEXT
+columns.disenchantEffectColumn.name = '$EFFECT'
+columns.disenchantEffectColumn.states = 2
+columns.disenchantEffectColumn.width = 0.4
+columns.disenchantEffectColumn.label.textFormat.align = right
+columns.disenchantEffectColumn.entry.textFormat.align = right
+
+columns.disenchantEffectColumn.state1.label.text = '$EFFECT'
+columns.disenchantEffectColumn.state1.label.arrowDown = false
+columns.disenchantEffectColumn.state1.entry.text = @effectName
+columns.disenchantEffectColumn.state1.sortAttributes = <effectName, value, text>
+columns.disenchantEffectColumn.state1.sortOptions = <{ASCENDING | CASEINSENSITIVE}, {DESCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+
+columns.disenchantEffectColumn.state2.label.text = '$EFFECT'
+columns.disenchantEffectColumn.state2.label.arrowDown = true
+columns.disenchantEffectColumn.state2.entry.text = @effectName
+columns.disenchantEffectColumn.state2.sortAttributes = <effectName, value, text>
+columns.disenchantEffectColumn.state2.sortOptions = <{DESCENDING | CASEINSENSITIVE}, {DESCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+
+; SOUL SIZE COLUMN -------------------------------------------------------
+columns.soulSizeColumn.type = TEXT
+columns.soulSizeColumn.name = '$HK19'
+columns.soulSizeColumn.states = 2
+columns.soulSizeColumn.width = 0.15
+columns.soulSizeColumn.label.textFormat.align = right
+columns.soulSizeColumn.entry.textFormat.align = right
+
+columns.soulSizeColumn.state1.label.text = '$HK19'
+columns.soulSizeColumn.state1.label.arrowDown = false
+columns.soulSizeColumn.state1.entry.text = @soulSizeDisplay
+columns.soulSizeColumn.state1.sortAttributes = <soulSize, text>
+columns.soulSizeColumn.state1.sortOptions = <{DESCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+
+columns.soulSizeColumn.state2.label.text = '$HK19'
+columns.soulSizeColumn.state2.label.arrowDown = true
+columns.soulSizeColumn.state2.entry.text = @soulSizeDisplay
+columns.soulSizeColumn.state2.sortAttributes = <soulSize, text>
+columns.soulSizeColumn.state2.sortOptions = <{ASCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+
+; ALCHEMY WEIGHT COLUMN -------------------------------------------------------
+columns.alchWeightColumn.type = TEXT
+columns.alchWeightColumn.name = '$WEIGHT'
+columns.alchWeightColumn.states = 2
+columns.alchWeightColumn.width = 0.14
+columns.alchWeightColumn.border = a_textBorder
+
+columns.alchWeightColumn.state1.label.text = '$WGT'
+columns.alchWeightColumn.state1.label.arrowDown = true
+columns.alchWeightColumn.state1.entry.text = @infoWeight
+columns.alchWeightColumn.state1.sortAttributes = <infoWeight, text>
+columns.alchWeightColumn.state1.sortOptions = <{DESCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+
+columns.alchWeightColumn.state2.label.text = '$WGT'
+columns.alchWeightColumn.state2.entry.text = @infoWeight
+columns.alchWeightColumn.state2.sortAttributes = <infoWeight, text>
+columns.alchWeightColumn.state2.sortOptions = <{ASCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+
+
+; ALCHEMY VALUE COLUMN -------------------------------------------------------
+columns.alchValueColumn.type = TEXT
+columns.alchValueColumn.name = '$VALUE'
+columns.alchValueColumn.states = 2
+columns.alchValueColumn.width = 0.14
+columns.alchValueColumn.border = a_textBorder
+
+columns.alchValueColumn.state1.label.text = '$VAL'
+columns.alchValueColumn.state1.label.arrowDown = true
+columns.alchValueColumn.state1.entry.text = @infoValue
+columns.alchValueColumn.state1.sortAttributes = <infoValue, text>
+columns.alchValueColumn.state1.sortOptions = <{DESCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+
+columns.alchValueColumn.state2.label.text = '$VAL'
+columns.alchValueColumn.state2.entry.text = @infoValue
+columns.alchValueColumn.state2.sortAttributes = <infoValue, text>
+columns.alchValueColumn.state2.sortOptions = <{ASCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+
+
+; ALCHEMY VALUE/WEIGHT COLUMN -------------------------------------------------------
+columns.alchValueWeightColumn.type = TEXT
+columns.alchValueWeightColumn.name = '$VALUE/WEIGHT'
+columns.alchValueWeightColumn.states = 2
+columns.alchValueWeightColumn.width = 0.14
+columns.alchValueWeightColumn.border = a_textBorder
+columns.alchValueWeightColumn.hidden = true
+
+columns.alchValueWeightColumn.state1.label.text = '$V/W'
+columns.alchValueWeightColumn.state1.label.arrowDown = true
+columns.alchValueWeightColumn.state1.entry.text = @infoValueWeight
+columns.alchValueWeightColumn.state1.sortAttributes = <infoValueWeight, text>
+columns.alchValueWeightColumn.state1.sortOptions = <{DESCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+
+columns.alchValueWeightColumn.state2.label.text = '$V/W'
+columns.alchValueWeightColumn.state2.entry.text = @infoValueWeight
+columns.alchValueWeightColumn.state2.sortAttributes = <infoValueWeight, text>
+columns.alchValueWeightColumn.state2.sortOptions = <{ASCENDING | NUMERIC}, {ASCENDING | CASEINSENSITIVE}>
+
+
+;jn: Set the default sorting column for every view to iconColumn
+; ITEM VIEWS -------------------------------------------------------
+;jn: defaultItemView applies to the following views in the Item menu: Favorites, All, Food, Ingredients, Books, and Misc.
+views.defaultItemView.primaryColumn = iconColumn
+views.defaultItemView.columns = <equipColumn, iconColumn, itemNameColumn, subTypeColumn, weightColumn, totalWeightColumn, valueColumn, valueWeightColumn>
+
+views.allItemView.primaryColumn = iconColumn
+views.allItemView.columns = <equipColumn, iconColumn, itemNameColumn, subTypeColumn, weightColumn, totalWeightColumn, valueColumn, valueWeightColumn>
+views.allItemView.category = <Inventory.FILTERFLAG_INV_ALL, Inventory.FILTERFLAG_CONTAINER_ALL>
+
+views.favoriteItemView.primaryColumn = iconColumn
+views.favoriteItemView.columns = <equipColumn, iconColumn, itemNameColumn, subTypeColumn, weightColumn, totalWeightColumn, valueColumn, valueWeightColumn>
+views.favoriteItemView.category = <Inventory.FILTERFLAG_INV_FAVORITES>
+
+views.armorView.primaryColumn = iconColumn
+views.armorView.columns = <equipColumn, iconColumn, itemNameColumn, subTypeColumn, classColumn, slotsColumn, materialColumn, arColumn, weightColumn, totalWeightColumn, valueColumn, valueWeightColumn>
+views.armorView.category = <Inventory.FILTERFLAG_INV_ARMOR, Inventory.FILTERFLAG_CONTAINER_ARMOR>
+
+views.bookView.primaryColumn = iconColumn
+views.bookView.columns = <equipColumn, iconColumn, itemNameColumn, subTypeColumn, weightColumn, totalWeightColumn, valueColumn, valueWeightColumn>
+views.bookView.category = <Inventory.FILTERFLAG_INV_BOOKS, Inventory.FILTERFLAG_CONTAINER_BOOKS>
+
+views.foodView.primaryColumn = iconColumn
+views.foodView.columns = <equipColumn, iconColumn, itemNameColumn, subTypeColumn, weightColumn, totalWeightColumn, valueColumn, valueWeightColumn>
+views.foodView.category = <Inventory.FILTERFLAG_INV_FOOD, Inventory.FILTERFLAG_CONTAINER_FOOD>
+
+views.ingredientView.primaryColumn = iconColumn
+views.ingredientView.columns = <equipColumn, iconColumn, itemNameColumn, subTypeColumn, weightColumn, totalWeightColumn, valueColumn, valueWeightColumn>
+views.ingredientView.category = <Inventory.FILTERFLAG_INV_INGREDIENTS, Inventory.FILTERFLAG_CONTAINER_INGREDIENTS>
+
+views.keyView.primaryColumn = iconColumn
+views.keyView.columns = <equipColumn, iconColumn, itemNameColumn, weightColumn, totalWeightColumn, valueColumn, valueWeightColumn>
+views.keyView.category = <Inventory.FILTERFLAG_INV_KEYS, Inventory.FILTERFLAG_CONTAINER_KEYS>
+
+views.miscView.primaryColumn = iconColumn
+views.miscView.columns = <equipColumn, iconColumn, itemNameColumn, subTypeColumn, weightColumn, totalWeightColumn, valueColumn, valueWeightColumn>
+views.miscView.category = <Inventory.FILTERFLAG_INV_MISC, Inventory.FILTERFLAG_CONTAINER_MISC>
+
+views.potionView.primaryColumn = iconColumn
+views.potionView.columns = <equipColumn, iconColumn, itemNameColumn, subTypeColumn, magnitudeColumn, durationColumn, weightColumn, totalWeightColumn, valueColumn, valueWeightColumn>
+views.potionView.category = <Inventory.FILTERFLAG_INV_POTIONS, Inventory.FILTERFLAG_CONTAINER_POTIONS>
+
+views.scrollView.primaryColumn = iconColumn
+views.scrollView.columns = <equipColumn, iconColumn, itemNameColumn, subTypeColumn, magnitudeColumn, durationColumn, weightColumn, totalWeightColumn, valueColumn, valueWeightColumn>
+views.scrollView.category = <Inventory.FILTERFLAG_INV_SCROLLS, Inventory.FILTERFLAG_CONTAINER_SCROLLS>
+
+views.weaponView.primaryColumn = iconColumn
+views.weaponView.columns = <equipColumn, iconColumn, itemNameColumn, subTypeColumn, materialColumn, damageColumn, basedamageColumn, reachColumn, speedColumn, staggerColumn, weightColumn, totalWeightColumn, valueColumn, valueWeightColumn>
+views.weaponView.category = <Inventory.FILTERFLAG_INV_WEAPONS, Inventory.FILTERFLAG_CONTAINER_WEAPONS>
+
+
+; MAGIC VIEWS -------------------------------------------------------
+views.defaultMagicView.primaryColumn = iconColumn
+views.defaultMagicView.columns = <equipColumn, iconColumn, magicNameColumn, levelColumn, magicMagnitudeColumn, magicDurationColumn, spellCostColumn>
+
+views.allMagicView.primaryColumn = iconColumn
+views.allMagicView.columns = <equipColumn, iconColumn, magicNameColumn, schoolColumn, levelColumn, spellCostColumn>
+views.allMagicView.category = <Inventory.FILTERFLAG_MAGIC_ALL, Inventory.FILTERFLAG_MAGIC_FAVORITES>
+
+views.shoutsView.primaryColumn = iconColumn
+views.shoutsView.columns = <equipColumn, iconColumn, magicNameColumn, word0Column, word1Column, word2Column>
+views.shoutsView.category = Inventory.FILTERFLAG_MAGIC_SHOUTS
+
+views.powersView.primaryColumn = iconColumn
+views.powersView.columns = <equipColumn, iconColumn, magicNameColumn, magicDurationColumn, spellCostColumn>
+views.powersView.category = Inventory.FILTERFLAG_MAGIC_POWERS
+
+views.activeEffectView.primaryColumn = iconColumn
+views.activeEffectView.columns = <equipColumn, iconColumn, magicNameColumn, timeRemainingColumn, effectItemColumn>
+views.activeEffectView.category = Inventory.FILTERFLAG_MAGIC_ACTIVEEFFECTS
+
+
+; CRAFTING VIEWS -------------------------------------------------------
+views.defaultCraftingView.primaryColumn = iconColumn
+views.defaultCraftingView.columns = <equipColumn, iconColumn, craftNameColumn, subTypeColumn, slotsColumn, weightColumn, valueColumn, valueWeightColumn>
+
+views.disenchantView.primaryColumn = iconColumn
+views.disenchantView.columns = <equipColumn, iconColumn, craftNameColumn, disenchantEffectColumn, subTypeColumn, weightColumn, valueColumn, valueWeightColumn>
+views.disenchantView.category = Inventory.FILTERFLAG_ENCHANTING_DISENCHANT
+
+views.enchantItemView.primaryColumn = iconColumn
+views.enchantItemView.columns = <equipColumn, iconColumn, craftNameColumn, subTypeColumn, materialColumn, weightColumn, valueColumn, valueWeightColumn>
+views.enchantItemView.category = Inventory.FILTERFLAG_ENCHANTING_ITEM
+
+views.enchantEnchantmentView.primaryColumn = iconColumn
+views.enchantEnchantmentView.columns = <equipColumn, iconColumn, craftNameColumn>
+views.enchantEnchantmentView.category = Inventory.FILTERFLAG_ENCHANTING_ENCHANTMENT
+
+views.enchantSoulView.primaryColumn = iconColumn
+views.enchantSoulView.columns = <equipColumn, iconColumn, craftNameColumn, soulSizeColumn, weightColumn, valueColumn, valueWeightColumn>
+views.enchantSoulView.category = Inventory.FILTERFLAG_ENCHANTING_SOULGEM
+
+views.craftWeaponView.primaryColumn = iconColumn
+views.craftWeaponView.columns = <equipColumn, iconColumn, craftNameColumn, subTypeColumn, materialColumn, damageColumn, basedamageColumn, reachColumn, speedColumn, staggerColumn, weightColumn, valueColumn, valueWeightColumn>
+views.craftWeaponView.category = <Inventory.FILTERFLAG_CUST_CRAFT_WEAPONS, Inventory.FILTERFLAG_CUST_CRAFT_AMMO>
+
+views.craftArmorView.primaryColumn = iconColumn
+views.craftArmorView.columns = <equipColumn, iconColumn, craftNameColumn, subTypeColumn, classColumn, slotsColumn, materialColumn, arColumn, weightColumn, valueColumn, valueWeightColumn>
+views.craftArmorView.category = Inventory.FILTERFLAG_CUST_CRAFT_ARMOR
+
+views.alchemyView.primaryColumn = iconColumn
+views.alchemyView.columns = <equipColumn, iconColumn, craftNameColumn, alchWeightColumn, alchValueColumn, alchValueWeightColumn>
+
+
+; LAYOUTS -------------------------------------------------------
+layouts.itemListLayout.name = 'ItemListLayout'
+layouts.itemListLayout.views = <favoriteItemView, allItemView, weaponView, armorView, potionView, scrollView, foodView, ingredientView, bookView, keyView, miscView, defaultItemView>
+
+layouts.magicListLayout.name = 'MagicListLayout'
+layouts.magicListLayout.views = <shoutsView, powersView, activeEffectView, allMagicView, defaultMagicView>
+
+layouts.enchantListLayout.name = 'EnchantListLayout'
+layouts.enchantListLayout.views = <disenchantView, enchantItemView, enchantEnchantmentView, enchantSoulView, defaultCraftingView>
+
+layouts.constructListLayout.name = 'ConstructListLayout'
+layouts.constructListLayout.views = <craftWeaponView, craftArmorView, defaultCraftingView>
+
+layouts.smithingListLayout.name = 'SmithingListLayout'
+layouts.smithingListLayout.views = <defaultCraftingView>
+
+layouts.alchemyListLayout.name = 'AlchemyListLayout'
+layouts.alchemyListLayout.views = <alchemyView>
+
+
+
+; =====================================================================================================================
+[Properties]
+; =====================================================================================================================
+
+;SkyUI Default Overrides
+
+;Default Ammo
+props.defaultAmmoIcon.propertiesToSet = <'subTypeDisplay'>
+props.defaultAmmoIcon.filter = <'formType': Form.TYPE_AMMO>
+props.defaultAmmoIcon.dataMember1.filter = <'subType': Weapon.AMMO_ARROW>
+props.defaultAmmoIcon.dataMember1.set = <'subTypeDisplay': '$Arrow'>
+props.defaultAmmoIcon.dataMember2.filter = <'subType': Weapon.AMMO_BOLT>
+props.defaultAmmoIcon.dataMember2.set = <'subTypeDisplay': '$Bolt'>
+
+
+;Default Armor
+props.defaultArmorIcon.propertiesToSet = <'subTypeDisplay'>
+props.defaultArmorIcon.filter = <'formType': Form.TYPE_ARMOR>
+props.defaultArmorIcon.dataMember1.filter = <'subTypeDisplay': 'Head'>
+props.defaultArmorIcon.dataMember1.set = <'subTypeDisplay': '$Head'>
+props.defaultArmorIcon.dataMember2.filter = <'subTypeDisplay': 'Body'>
+props.defaultArmorIcon.dataMember2.set = <'subTypeDisplay': '$Body'>
+props.defaultArmorIcon.dataMember3.filter = <'subTypeDisplay': 'Hands'>
+props.defaultArmorIcon.dataMember3.set = <'subTypeDisplay': '$Hands'>
+props.defaultArmorIcon.dataMember4.filter = <'subTypeDisplay': 'Forearms'>
+props.defaultArmorIcon.dataMember4.set = <'subTypeDisplay': '$Forearms'>
+props.defaultArmorIcon.dataMember5.filter = <'subTypeDisplay': 'Amulet'>
+props.defaultArmorIcon.dataMember5.set = <'subTypeDisplay': '$Amulet'>
+props.defaultArmorIcon.dataMember6.filter = <'subTypeDisplay': 'Ring'>
+props.defaultArmorIcon.dataMember6.set = <'subTypeDisplay': '$Ring'>
+props.defaultArmorIcon.dataMember7.filter = <'subTypeDisplay': 'Feet'>
+props.defaultArmorIcon.dataMember7.set = <'subTypeDisplay': '$Feet'>
+props.defaultArmorIcon.dataMember8.filter = <'subTypeDisplay': 'Calves'>
+props.defaultArmorIcon.dataMember8.set = <'subTypeDisplay': '$Calves'>
+props.defaultArmorIcon.dataMember9.filter = <'subTypeDisplay': 'Shield'>
+props.defaultArmorIcon.dataMember9.set = <'subTypeDisplay': '$Shield'>
+props.defaultArmorIcon.dataMember10.filter = <'subTypeDisplay': 'Circlet'>
+props.defaultArmorIcon.dataMember10.set = <'subTypeDisplay': '$Circlet'>
+props.defaultArmorIcon.dataMember11.filter = <'subTypeDisplay': 'Ears'>
+props.defaultArmorIcon.dataMember11.set = <'subTypeDisplay': '$Ears'>
+props.defaultArmorIcon.dataMember12.filter = <'subTypeDisplay': 'Tail'>
+props.defaultArmorIcon.dataMember12.set = <'subTypeDisplay': '$Tail'>
+
+
+;Default Book
+props.defaultBookIcon.propertiesToSet = <'subTypeDisplay'>
+props.defaultBookIcon.filter = <'formType': Form.TYPE_BOOK>
+props.defaultBookIcon.dataMember1.filter = <'subTypeDisplay': 'Book'>
+props.defaultBookIcon.dataMember1.set = <'subTypeDisplay': '$Book'>
+props.defaultBookIcon.dataMember2.filter = <'subTypeDisplay': 'Note'>
+props.defaultBookIcon.dataMember2.set = <'subTypeDisplay': '$Note'>
+props.defaultBookIcon.dataMember3.filter = <'subType': Item.BOOK_RECIPE>
+props.defaultBookIcon.dataMember3.set = <'subTypeDisplay': '$Recipe'>
+props.defaultBookIcon.dataMember4.filter = <'subType': Item.BOOK_SPELLTOME>
+props.defaultBookIcon.dataMember4.set = <'subTypeDisplay': '$Spell Tome'>
+
+
+;Default Ingredient
+props.defaultIngredientIcon.propertiesToSet = <'subTypeDisplay'>
+props.defaultIngredientIcon.filter = <'formType': Form.TYPE_INGREDIENT>
+props.defaultIngredientIcon.dataMember1.filter = <'subTypeDisplay': 'Ingredient'>
+props.defaultIngredientIcon.dataMember1.set = <'subTypeDisplay': '$Ingredient'>
+
+
+;Default Key
+props.defaultKeyIcon.propertiesToSet = <'subTypeDisplay'>
+props.defaultKeyIcon.filter = <'formType': Form.TYPE_KEY>
+props.defaultKeyIcon.dataMember1.filter = <'subTypeDisplay': 'Key'>
+props.defaultKeyIcon.dataMember1.set = <'subTypeDisplay': '$Key'>
+
+
+;Default Light
+props.defaultLightIcon.propertiesToSet = <'subTypeDisplay'>
+props.defaultLightIcon.filter = <'formType': Form.TYPE_LIGHT>
+props.defaultLightIcon.dataMember1.filter = <'subTypeDisplay': 'Torch'>
+props.defaultLightIcon.dataMember1.set = <'subTypeDisplay': '$Torch'>
+
+
+;Default Misc
+props.defaultMiscIcon.propertiesToSet = <'subTypeDisplay'>
+props.defaultMiscIcon.filter = <'formType': Form.TYPE_MISC>
+props.defaultMiscIcon.dataMember1.filter = <'subTypeDisplay': 'Misc'>
+props.defaultMiscIcon.dataMember1.set = <'subTypeDisplay': '$Misc'>
+props.defaultMiscIcon.dataMember2.filter = <'subType': Item.MISC_CHILDRENSCLOTHES>
+props.defaultMiscIcon.dataMember2.set = <'subTypeDisplay': '$Clothing'>
+props.defaultMiscIcon.dataMember3.filter = <'subType': Item.MISC_TOY>
+props.defaultMiscIcon.dataMember3.set = <'subTypeDisplay': '$Toy'>
+props.defaultMiscIcon.dataMember4.filter = <'subTypeDisplay': 'House Part'>
+props.defaultMiscIcon.dataMember4.set = <'subTypeDisplay': '$Building Part'>
+props.defaultMiscIcon.dataMember5.filter = <'subTypeDisplay': 'Artifact'>
+props.defaultMiscIcon.dataMember5.set = <'subTypeDisplay': '$Artifact'>
+props.defaultMiscIcon.dataMember6.filter = <'subTypeDisplay': 'Gem'>
+props.defaultMiscIcon.dataMember6.set = <'subTypeDisplay': '$Gem'>
+props.defaultMiscIcon.dataMember7.filter = <'subTypeDisplay': 'Hide'>
+props.defaultMiscIcon.dataMember7.set = <'subTypeDisplay': '$Pelt'>
+props.defaultMiscIcon.dataMember8.filter = <'subTypeDisplay': 'Tool'>
+props.defaultMiscIcon.dataMember8.set = <'subTypeDisplay': '$Tool'>
+props.defaultMiscIcon.dataMember9.filter = <'subTypeDisplay': 'Remains'>
+props.defaultMiscIcon.dataMember9.set = <'subTypeDisplay': '$Remains'>
+props.defaultMiscIcon.dataMember10.filter = <'subTypeDisplay': 'Ingot'>
+props.defaultMiscIcon.dataMember10.set = <'subTypeDisplay': '$Ingot'>
+props.defaultMiscIcon.dataMember11.filter = <'subTypeDisplay': 'Clutter'>
+props.defaultMiscIcon.dataMember11.set = <'subTypeDisplay': '$Clutter'>
+props.defaultMiscIcon.dataMember12.filter = <'subTypeDisplay': 'Firewood'>
+props.defaultMiscIcon.dataMember12.set = <'subTypeDisplay': '$Wood'>
+props.defaultMiscIcon.dataMember13.filter = <'subTypeDisplay': 'Claw'>
+props.defaultMiscIcon.dataMember13.set = <'subTypeDisplay': '$ClawDragon'>
+props.defaultMiscIcon.dataMember14.filter = <'subTypeDisplay': 'Lockpick'>
+props.defaultMiscIcon.dataMember14.set = <'subTypeDisplay': '$Lockpick'>
+props.defaultMiscIcon.dataMember15.filter = <'subTypeDisplay': 'Gold'>
+props.defaultMiscIcon.dataMember15.set = <'subTypeDisplay': '$Coin'>
+props.defaultMiscIcon.dataMember16.filter = <'subTypeDisplay': 'Leather'>
+props.defaultMiscIcon.dataMember16.set = <'subTypeDisplay': '$Leather'>
+props.defaultMiscIcon.dataMember17.filter = <'subTypeDisplay': 'Strips'>
+props.defaultMiscIcon.dataMember17.set = <'subTypeDisplay': '$Strips'>
+props.defaultMiscIcon.dataMember18.filter = <'subTypeDisplay': 'Building Part'>
+props.defaultMiscIcon.dataMember18.set = <'subTypeDisplay': '$House Part'>
+props.defaultMiscIcon.dataMember19.filter = <'subTypeDisplay': 'Pelt'>
+props.defaultMiscIcon.dataMember19.set = <'subTypeDisplay': '$Pelt'>
+props.defaultMiscIcon.dataMember20.filter = <'subTypeDisplay': 'Wood'>
+props.defaultMiscIcon.dataMember20.set = <'subTypeDisplay': '$Wood'>
+props.defaultMiscIcon.dataMember21.filter = <'subTypeDisplay': 'Dragon Claw'>
+props.defaultMiscIcon.dataMember21.set = <'subTypeDisplay': '$ClawDragon'>
+props.defaultMiscIcon.dataMember22.filter = <'subTypeDisplay': 'Coin'>
+props.defaultMiscIcon.dataMember22.set = <'subTypeDisplay': '$Coin'>
+
+;props.defaultMiscIcon.dataMember23.filter = <'subTypeDisplay': ''>
+;props.defaultMiscIcon.dataMember23.set = <'subTypeDisplay': '$'>
+;props.defaultMiscIcon.dataMember24.filter = <'subTypeDisplay': ''>
+;props.defaultMiscIcon.dataMember24.set = <'subTypeDisplay': '$'>
+
+
+
+;Default Potions
+props.defaultPotionIcon.propertiesToSet = <'subTypeDisplay'>
+props.defaultPotionIcon.filter = <'formType': Form.TYPE_POTION>
+props.defaultPotionIcon.dataMember1.filter = <'subTypeDisplay': 'Potion'>
+props.defaultPotionIcon.dataMember1.set = <'subTypeDisplay': '$Potion'>
+props.defaultPotionIcon.dataMember2.filter = <'subTypeDisplay': 'Food'>
+props.defaultPotionIcon.dataMember2.set = <'subTypeDisplay': '$Food'>
+props.defaultPotionIcon.dataMember3.filter = <'subTypeDisplay': 'Drink'>
+props.defaultPotionIcon.dataMember3.set = <'subTypeDisplay': '$Drink'>
+props.defaultPotionIcon.dataMember4.filter = <'subTypeDisplay': 'Poison'>
+props.defaultPotionIcon.dataMember4.set = <'subTypeDisplay': '$Poison'>
+props.defaultPotionIcon.dataMember5.filter = <'subTypeDisplay': 'Health'>
+props.defaultPotionIcon.dataMember5.set = <'subTypeDisplay': '$Health'>
+props.defaultPotionIcon.dataMember6.filter = <'subTypeDisplay': 'Magicka'>
+props.defaultPotionIcon.dataMember6.set = <'subTypeDisplay': '$Magicka'>
+props.defaultPotionIcon.dataMember7.filter = <'subTypeDisplay': 'Stamina'>
+props.defaultPotionIcon.dataMember7.set = <'subTypeDisplay': '$Stamina'>
+
+
+;Default Scroll
+props.defaultScrollIcon.propertiesToSet = <'subTypeDisplay'>
+props.defaultScrollIcon.filter = <'formType': Form.TYPE_SCROLLITEM>
+props.defaultScrollIcon.dataMember1.filter = <'subTypeDisplay': 'Scroll'>
+props.defaultScrollIcon.dataMember1.set = <'subTypeDisplay': '$Scroll'>
+
+
+;Default Soul Gem
+props.defaultSoulgemIcon.propertiesToSet = <'subTypeDisplay'>
+props.defaultSoulgemIcon.filter = <'formType': Form.TYPE_SOULGEM>
+props.defaultSoulgemIcon.dataMember1.filter = <'subTypeDisplay': 'Soul Gem'>
+props.defaultSoulgemIcon.dataMember1.set = <'subTypeDisplay': '$Soul Gem'>
+
+
+;Default Weapons
+props.defaultWeaponIcon.propertiesToSet = <'subTypeDisplay'>
+props.defaultWeaponIcon.filter = <'formType': Form.TYPE_WEAPON>
+props.defaultWeaponIcon.dataMember1.filter = <'subTypeDisplay': 'Melee'>
+props.defaultWeaponIcon.dataMember1.set = <'subTypeDisplay': '$Melee'>
+props.defaultWeaponIcon.dataMember2.filter = <'subTypeDisplay': 'Sword'>
+props.defaultWeaponIcon.dataMember2.set = <'subTypeDisplay': '$Sword'>
+props.defaultWeaponIcon.dataMember3.filter = <'subTypeDisplay': 'Dagger'>
+props.defaultWeaponIcon.dataMember3.set = <'subTypeDisplay': '$Dagger'>
+props.defaultWeaponIcon.dataMember4.filter = <'subTypeDisplay': 'War Axe'>
+props.defaultWeaponIcon.dataMember4.set = <'subTypeDisplay': '$War Axe'>
+props.defaultWeaponIcon.dataMember5.filter = <'subTypeDisplay': 'Mace'>
+props.defaultWeaponIcon.dataMember5.set = <'subTypeDisplay': '$Mace'>
+props.defaultWeaponIcon.dataMember6.filter = <'subTypeDisplay': 'Greatsword'>
+props.defaultWeaponIcon.dataMember6.set = <'subTypeDisplay': '$Greatsword'>
+props.defaultWeaponIcon.dataMember7.filter = <'subTypeDisplay': 'Battleaxe'>
+props.defaultWeaponIcon.dataMember7.set = <'subTypeDisplay': '$Battleaxe'>
+props.defaultWeaponIcon.dataMember8.filter = <'subTypeDisplay': 'Warhammer'>
+props.defaultWeaponIcon.dataMember8.set = <'subTypeDisplay': '$Warhammer'>
+props.defaultWeaponIcon.dataMember9.filter = <'subTypeDisplay': 'Bow'>
+props.defaultWeaponIcon.dataMember9.set = <'subTypeDisplay': '$Bow'>
+props.defaultWeaponIcon.dataMember10.filter = <'subTypeDisplay': 'Staff'>
+props.defaultWeaponIcon.dataMember10.set = <'subTypeDisplay': '$Staff'>
+props.defaultWeaponIcon.dataMember11.filter = <'subTypeDisplay': 'Crossbow'>
+props.defaultWeaponIcon.dataMember11.set = <'subTypeDisplay': '$Crossbow'>
+props.defaultWeaponIcon.dataMember12.filter = <'subTypeDisplay': 'Pickaxe'>
+props.defaultWeaponIcon.dataMember12.set = <'subTypeDisplay': '$Pickaxe'>
+props.defaultWeaponIcon.dataMember13.filter = <'subTypeDisplay': 'Wood Axe'>
+props.defaultWeaponIcon.dataMember13.set = <'subTypeDisplay': '$Wood Axe'>
+props.defaultWeaponIcon.dataMember14.filter = <'subTypeDisplay': 'Waraxe'>
+props.defaultWeaponIcon.dataMember14.set = <'subTypeDisplay': '$War Axe'>
+props.defaultWeaponIcon.dataMember15.filter = <'subTypeDisplay': 'War Hammer'>
+props.defaultWeaponIcon.dataMember15.set = <'subTypeDisplay': '$Warhammer'>
+
+
+
+
+;Default TYPE
+;props.defaultTYPEIcon.propertiesToSet = <'subTypeDisplay'>
+;props.defaultTYPEIcon.filter = <'formType': Form.TYPE_INSERTTYPEHERE>
+;props.defaultTYPEIcon.dataMember1.filter = <'subTypeDisplay': ''>
+;props.defaultTYPEIcon.dataMember1.set = <'subTypeDisplay': ''>
+;props.defaultTYPEIcon.dataMember2.filter = <'subTypeDisplay': ''>
+;props.defaultTYPEIcon.dataMember2.set = <'subTypeDisplay': ''>
+;props.defaultTYPEIcon.dataMember3.filter = <'subTypeDisplay': ''>
+;props.defaultTYPEIcon.dataMember3.set = <'subTypeDisplay': ''>
+;props.defaultTYPEIcon.dataMember4.filter = <'subTypeDisplay': ''>
+;props.defaultTYPEIcon.dataMember4.set = <'subTypeDisplay': ''>
+;props.defaultTYPEIcon.dataMember5.filter = <'subTypeDisplay': ''>
+;props.defaultTYPEIcon.dataMember5.set = <'subTypeDisplay': ''>
+;props.defaultTYPEIcon.dataMember6.filter = <'subTypeDisplay': ''>
+;props.defaultTYPEIcon.dataMember6.set = <'subTypeDisplay': ''>
+;props.defaultTYPEIcon.dataMember7.filter = <'subTypeDisplay': ''>
+;props.defaultTYPEIcon.dataMember7.set = <'subTypeDisplay': ''>
+;props.defaultTYPEIcon.dataMember8.filter = <'subTypeDisplay': ''>
+;props.defaultTYPEIcon.dataMember8.set = <'subTypeDisplay': ''>
+;props.defaultTYPEIcon.dataMember9.filter = <'subTypeDisplay': ''>
+;props.defaultTYPEIcon.dataMember9.set = <'subTypeDisplay': ''>
+;props.defaultTYPEIcon.dataMember10.filter = <'subTypeDisplay': ''>
+;props.defaultTYPEIcon.dataMember10.set = <'subTypeDisplay': ''>
+;props.defaultTYPEIcon.dataMember11.filter = <'subTypeDisplay': ''>
+;props.defaultTYPEIcon.dataMember11.set = <'subTypeDisplay': ''>
+;props.defaultTYPEIcon.dataMember12.filter = <'subTypeDisplay': ''>
+;props.defaultTYPEIcon.dataMember12.set = <'subTypeDisplay': ''>
+;props.defaultTYPEIcon.dataMember13.filter = <'subTypeDisplay': ''>
+;props.defaultTYPEIcon.dataMember13.set = <'subTypeDisplay': ''>
+;props.defaultTYPEIcon.dataMember14.filter = <'subTypeDisplay': ''>
+;props.defaultTYPEIcon.dataMember14.set = <'subTypeDisplay': ''>
+;props.defaultTYPEIcon.dataMember15.filter = <'subTypeDisplay': ''>
+;props.defaultTYPEIcon.dataMember15.set = <'subTypeDisplay': ''>
+;props.defaultTYPEIcon.dataMember16.filter = <'subTypeDisplay': ''>
+;props.defaultTYPEIcon.dataMember16.set = <'subTypeDisplay': ''>
+;props.defaultTYPEIcon.dataMember17.filter = <'subTypeDisplay': ''>
+;props.defaultTYPEIcon.dataMember17.set = <'subTypeDisplay': ''>
+;props.defaultTYPEIcon.dataMember18.filter = <'subTypeDisplay': ''>
+;props.defaultTYPEIcon.dataMember18.set = <'subTypeDisplay': ''>
+;props.defaultTYPEIcon.dataMember19.filter = <'subTypeDisplay': ''>
+;props.defaultTYPEIcon.dataMember19.set = <'subTypeDisplay': ''>
+;props.defaultTYPEIcon.dataMember20.filter = <'subTypeDisplay': ''>
+;props.defaultTYPEIcon.dataMember20.set = <'subTypeDisplay': ''>
+
+
+; =====================================================================================================================
+
+;Dear Diary Default
+
+;jn: Immersive Jewelry
+
+;IJ Armor
+props.IJArmorIcon.propertiesToSet = <'iconLabel', 'subTypeDisplay'>
+props.IJArmorIcon.filter = <'formType': Form.TYPE_ARMOR>
+props.IJArmorIcon.keywords.ClothingPouch = <'iconLabel': 'misc_goldsack', 'subTypeDisplay': '$Bag'>
+props.IJArmorIcon.keywords.CDC_StorageHelpersToken = <'iconLabel': 'misc_goldsack', 'subTypeDisplay': '$Bag'>
+props.IJArmorIcon.keywords.ClothingRing = <'iconLabel': 'armor_ring', 'subTypeDisplay': '$Ring'>
+props.IJArmorIcon.keywords.ClothingEarrings = <'iconLabel': 'armor_ring', 'subTypeDisplay': '$Earrings'>
+props.IJArmorIcon.keywords.ClothingEarCuffs = <'iconLabel': 'armor_ring', 'subTypeDisplay': '$Ear Cuffs'>
+props.IJArmorIcon.keywords.ClothingAmulet = <'iconLabel': 'armor_amulet', , 'subTypeDisplay': '$Amulet'>
+props.IJArmorIcon.keywords.ClothingCirclet = <'iconLabel': 'armor_circlet', , 'subTypeDisplay': '$Circlet'>
+props.IJArmorIcon.keywords.ClothingBracelet = <'iconLabel': 'armor_circlet', 'subTypeDisplay': '$Bracelet'>
+props.IJArmorIcon.keywords.ClothingCrown = <'iconLabel': 'armor_circlet', 'subTypeDisplay': '$Crown'>
+props.IJArmorIcon.keywords.ArmorTorc = <'iconLabel': 'armor_circlet', 'subTypeDisplay': '$Torc'>
+props.IJArmorIcon.keywords.JewelryTorc = <'iconLabel': 'armor_circlet', 'subTypeDisplay': '$Torc'>
+props.IJArmorIcon.keywords.ClothingChoker = <'iconLabel': 'armor_amulet', 'subTypeDisplay': '$Choker'>
+props.IJArmorIcon.keywords.ClothingHighNecklace = <'iconLabel': 'armor_amulet', 'subTypeDisplay': '$Necklace'>
+
+;IJ Misc
+props.IJMiscIcon.propertiesToSet = <'iconLabel', 'subTypeDisplay'>
+props.IJMiscIcon.filter = <'formType': Form.TYPE_MISC>
+props.IJMiscIcon.keywords.CDC_StorageHelpersToken = <'iconLabel': 'misc_goldsack'>
+
+;IJ Weapons
+props.IJWeaponIcon.propertiesToSet = <'iconLabel', 'subTypeDisplay'>
+props.IJWeaponIcon.filter = <'formType': Form.TYPE_WEAPON>
+props.IJWeaponIcon.keywords.DLC2NordicPickaxe = <'iconLabel': 'weapon_pickaxe'>
+
+; =====================================================================================================================
+
+;Ammo
+props.ammoIcon.propertiesToSet = <'iconLabel', 'subTypeDisplay'>
+props.ammoIcon.filter = <'formType': Form.TYPE_AMMO>
+props.ammoIcon.keywords.AmmoTypeArrow = <'iconLabel': 'weapon_arrow', 'subTypeDisplay': '$Arrow'>
+props.ammoIcon.keywords.AmmoTypeBolt = <'iconLabel': 'weapon_bolt', 'subTypeDisplay': '$Bolt'>
+props.ammoIcon.keywords.AmmoTypeRiekling = <'iconLabel': 'weapon_javelin', 'subTypeDisplay': '$Javelin'>
+
+props.ammoIcon.keywords.AmmoTypeGreatArrow = <'iconLabel': 'weapon_arrow', 'subTypeDisplay': '$Greatarrow'>
+props.ammoIcon.keywords.AmmoTypeBullet = <'iconLabel': 'misc_goldsack', 'subTypeDisplay': '$Bullet'>
+props.ammoIcon.keywords.AmmoTypePellet = <'iconLabel': 'misc_goldsack', 'subTypeDisplay': '$Pellet'>
+
+props.ammoIcon.keywords.AmmoTypeBound = <'iconLabel': 'weapon_arrow', 'subTypeDisplay': '$Bound'>
+
+
+
+;Armor
+props.armorIcon.propertiesToSet = <'iconLabel', 'subTypeDisplay'>
+props.armorIcon.filter = <'formType': Form.TYPE_ARMOR>
+
+props.armorIcon.keywords.IconSetArmor = <'iconLabel': 'default_armor'>
+props.armorIcon.keywords.IconSetArmorBracer = <'iconLabel': 'armor_bracer', 'subTypeDisplay': '$Hands'>
+props.armorIcon.keywords.IconSetArmorDaedra = <'iconLabel': 'armor_daedra'>
+props.armorIcon.keywords.IconSetJewelryCirclet = <'iconLabel': 'armor_circlet', 'subTypeDisplay': '$Circlet'>
+props.armorIcon.keywords.IconSetJewelryAmulet = <'iconLabel': 'armor_amulet', 'subTypeDisplay': '$Amulet'>
+props.armorIcon.keywords.IconSetJewelryRing = <'iconLabel': 'armor_ring', 'subTypeDisplay': '$Ring'>
+props.armorIcon.keywords.IconSetClothingMask = <'iconLabel': 'clothing_mask', 'subTypeDisplay': '$Mask'>
+props.armorIcon.keywords.IconSetClothingHead = <'iconLabel': 'clothing_head', 'subTypeDisplay': '$Head'>
+props.armorIcon.keywords.IconSetClothingBody = <'iconLabel': 'clothing_body', 'subTypeDisplay': '$Body'>
+props.armorIcon.keywords.IconSetClothingRobe = <'iconLabel': 'clothing_robe', 'subTypeDisplay': '$Body'>
+props.armorIcon.keywords.IconSetClothingHands = <'iconLabel': 'clothing_hands', 'subTypeDisplay': '$Hands'>
+props.armorIcon.keywords.IconSetClothingForearms = <'iconLabel': 'clothing_hands', 'subTypeDisplay': '$Forearms'>
+props.armorIcon.keywords.IconSetClothingPants = <'iconLabel': 'clothing_pants', 'subTypeDisplay': '$Calves'>
+props.armorIcon.keywords.IconSetClothingFeet = <'iconLabel': 'clothing_feet', 'subTypeDisplay': '$Feet'>
+props.armorIcon.keywords.IconSetClothingCalves = <'iconLabel': 'clothing_feet', 'subTypeDisplay': '$Calves'>
+props.armorIcon.keywords.IconSetClothingShoes = <'iconLabel': 'clothing_shoes', 'subTypeDisplay': '$Feet'>
+props.armorIcon.keywords.IconSetClothingShield = <'iconLabel': 'clothing_shield', 'subTypeDisplay': '$Shield'>
+props.armorIcon.keywords.IconSetLightMask = <'iconLabel': 'lightarmor_mask', 'subTypeDisplay': '$Mask'>
+props.armorIcon.keywords.IconSetLightHead = <'iconLabel': 'lightarmor_head', 'subTypeDisplay': '$Head'>
+props.armorIcon.keywords.IconSetLightBody = <'iconLabel': 'lightarmor_body', 'subTypeDisplay': '$Body'>
+props.armorIcon.keywords.IconSetLightHands = <'iconLabel': 'lightarmor_hands', 'subTypeDisplay': '$Hands'>
+props.armorIcon.keywords.IconSetLightForearms = <'iconLabel': 'lightarmor_hands', 'subTypeDisplay': '$Forearms'>
+props.armorIcon.keywords.IconSetLightFeet = <'iconLabel': 'lightarmor_feet', 'subTypeDisplay': '$Feet'>
+props.armorIcon.keywords.IconSetLightCalves = <'iconLabel': 'lightarmor_feet', 'subTypeDisplay': '$Calves'>
+props.armorIcon.keywords.IconSetLightShield = <'iconLabel': 'lightarmor_shield', 'subTypeDisplay': '$Shield'>
+props.armorIcon.keywords.IconSetHeavyMask = <'iconLabel': 'armor_mask', 'subTypeDisplay': '$Mask'>
+props.armorIcon.keywords.IconSetHeavyHead = <'iconLabel': 'armor_head', 'subTypeDisplay': '$Head'>
+props.armorIcon.keywords.IconSetHeavyBody = <'iconLabel': 'armor_body', 'subTypeDisplay': '$Body'>
+props.armorIcon.keywords.IconSetHeavyHands = <'iconLabel': 'armor_hands', 'subTypeDisplay': '$Hands'>
+props.armorIcon.keywords.IconSetHeavyForearms = <'iconLabel': 'armor_hands', 'subTypeDisplay': '$Forearms'>
+props.armorIcon.keywords.IconSetHeavyFeet = <'iconLabel': 'armor_feet', 'subTypeDisplay': '$Feet'>
+props.armorIcon.keywords.IconSetHeavyCalves = <'iconLabel': 'armor_feet', 'subTypeDisplay': '$Calves'>
+props.armorIcon.keywords.IconSetHeavyShield = <'iconLabel': 'armor_shield', 'subTypeDisplay': '$Shield'>
+
+
+props.armorIcon.keywords.IconSetClothingTail = <'iconLabel': 'clothing_body', 'subTypeDisplay': '$Tail'>
+props.armorIcon.keywords.IconSetLightTail = <'iconLabel': 'lightarmor_body', 'subTypeDisplay': '$Tail'>
+props.armorIcon.keywords.IconSetArmorTail = <'iconLabel': 'armor_body', 'subTypeDisplay': '$Tail'>
+props.armorIcon.keywords.IconSetBodyTail = <'subTypeDisplay': '$Tail'>
+props.armorIcon.keywords.IconSetJewelryEars = <'subTypeDisplay': '$Earrings'>
+props.armorIcon.keywords.IconSetBodyEars = <'subTypeDisplay': '$Ears'>
+props.armorIcon.keywords.IconSetClothingHair = <'iconLabel': 'clothing_head', 'subTypeDisplay': '$Hair'>
+props.armorIcon.keywords.IconSetBodyHair = <'subTypeDisplay': '$Hair'>
+props.armorIcon.keywords.IconSetJewelryHorns = <'iconLabel': 'armor_circlet', 'subTypeDisplay': '$Horns'>
+props.armorIcon.keywords.IconSetBodyHorns = <'subTypeDisplay': '$Horns'>
+props.armorIcon.keywords.IconSetBodyNails = <'iconLabel': 'clothing_hands', 'subTypeDisplay': '$Nails'>
+props.armorIcon.keywords.IconSetBodyClaws = <'iconLabel': 'weapon_claw', 'subTypeDisplay': '$Claws'>
+
+
+props.armorIcon.keywords.IconSetArmorAccessory = <'iconLabel': 'default_armor', 'subTypeDisplay': '$Accessory'>
+props.armorIcon.keywords.IconSetClothingAccessory = <'iconLabel': 'clothing_robe', 'subTypeDisplay': '$Accessory'>
+props.armorIcon.keywords.IconSetJewelryAccessory = <'iconLabel': 'misc_gem', 'subTypeDisplay': '$Accessory'>
+props.armorIcon.keywords.IconSetClothingBandage = <'iconLabel': 'default_armor', 'subTypeDisplay': '$Bandage'>
+props.armorIcon.keywords.IconSetClothingBra = <'iconLabel': 'clothing_robe', 'subTypeDisplay': '$Bra'>
+props.armorIcon.keywords.IconSetClothingCape = <'iconLabel': 'clothing_robe', 'subTypeDisplay': '$Cape'>
+props.armorIcon.keywords.IconSetJewelryChoker = <'iconLabel': 'armor_amulet', 'subTypeDisplay': '$Choker'>
+props.armorIcon.keywords.IconSetClothingCloak = <'iconLabel': 'clothing_robe', 'subTypeDisplay': '$Cloak'>
+props.armorIcon.keywords.IconSetClothingCollar = <'iconLabel': 'clothing_head', 'subTypeDisplay': '$Collar'>
+props.armorIcon.keywords.IconSetClothingCorset = <'iconLabel': 'lightarmor_body', 'subTypeDisplay': '$Corset'>
+props.armorIcon.keywords.IconSetJewelryCrown = <'iconLabel': 'armor_circlet', 'subTypeDisplay': '$Crown'>
+props.armorIcon.keywords.IconSetEarrings = <'iconLabel': 'misc_gem', 'subTypeDisplay': '$Earrings'>
+props.armorIcon.keywords.IconSetClothingPanties = <'iconLabel': 'clothing_pants', 'subTypeDisplay': '$Panties'>
+props.armorIcon.keywords.IconSetArmorShoulders = <'iconLabel': 'default_armor', 'subTypeDisplay': '$Shoulders'>
+props.armorIcon.keywords.IconSetClothingShoulders = <'iconLabel': 'clothing_robe', 'subTypeDisplay': '$Shoulders'>
+props.armorIcon.keywords.IconSetClothingUnderwear = <'iconLabel': 'clothing_robe', 'subTypeDisplay': '$Body'>
+props.armorIcon.keywords.IconSetClothingWaist = <'iconLabel': 'clothing_pants', 'subTypeDisplay': '$Waist'>
+props.armorIcon.keywords.IconSetWings = <'iconLabel': 'armor_daedra', 'subTypeDisplay': '$Wings'>
+
+
+props.armorIcon.keywords.IconSetArtifact = <'iconLabel': 'misc_artifact', 'subTypeDisplay': '$Artifact'>
+
+props.armorIcon.keywords.IconSetPouch = <'iconLabel': 'misc_goldsack', 'subTypeDisplay': '$Pouch'>
+props.armorIcon.keywords.IconSetBackpack = <'iconLabel': 'misc_goldsack', 'subTypeDisplay': '$Backpack'>
+props.armorIcon.keywords.IconSetBag = <'iconLabel': 'misc_goldsack', 'subTypeDisplay': '$Bag'>
+
+props.armorIcon.keywords.IconSetShieldCampfire = <'iconLabel': 'weapon_quarterstaff', 'subTypeDisplay': '$Tool'>
+props.armorIcon.keywords.IconSetShieldMap = <'iconLabel': 'book_map', 'subTypeDisplay': '$Map'>
+props.armorIcon.keywords.IconSetShieldCompass = <'iconLabel': 'misc_clutter', 'subTypeDisplay': '$Compass'>
+
+props.armorIcon.keywords.IconSetCrafting = <'iconLabel': 'default_misc', 'subTypeDisplay': '-'>
+
+
+
+;Book
+props.bookIcon.propertiesToSet = <'iconLabel', 'subTypeDisplay'>
+props.bookIcon.filter = <'formType': Form.TYPE_BOOK>
+props.bookIcon.keywords.IconSetBook = <'iconLabel': 'default_book', 'subTypeDisplay': '$Book'>
+props.bookIcon.keywords.IconSetSpellTome = <'iconLabel': 'book_tome', 'subTypeDisplay': '$Spell Tome'>
+props.bookIcon.keywords.IconSetNote = <'iconLabel': 'book_note', 'subTypeDisplay': '$Note'>
+
+props.bookIcon.keywords.IconSetJournal = <'iconLabel': 'book_journal', 'subTypeDisplay': '$Journal'>
+props.bookIcon.keywords.IconSetJournalNote = <'iconLabel': 'book_note', 'subTypeDisplay': '$Journal'>
+props.bookIcon.keywords.IconSetBookSkill = <'subTypeDisplay': '$Skill Book'>
+props.bookIcon.keywords.IconSetBookQuest = <'subTypeDisplay': '$Quest Book'>
+props.bookIcon.keywords.IconSetBookManual = <'subTypeDisplay': '$Guide Book'>
+props.bookIcon.keywords.IconSetBookArtifact = <'subTypeDisplay': '$Artifact'>
+props.bookIcon.keywords.IconSetBookRelic = <'subTypeDisplay': '$Relic'>
+props.bookIcon.keywords.IconSetBookDocument = <'subTypeDisplay': '$Document'>
+props.bookIcon.keywords.IconSetNoteDocument = <'iconLabel': 'book_note', 'subTypeDisplay': '$Document'>
+props.bookIcon.keywords.IconSetNoteDocumentCurrency = <'iconLabel': 'book_note', 'subTypeDisplay': '$Currency'>
+
+props.bookIcon.keywords.IconSetRecipe = <'subTypeDisplay': '$Recipe'>
+props.bookIcon.keywords.IconSetRecipeJournal = <'iconLabel': 'book_journal', 'subTypeDisplay': '$Recipe'>
+props.bookIcon.keywords.IconSetBounty = <'subTypeDisplay': '$Request'>
+props.bookIcon.keywords.IconSetMap = <'iconLabel': 'book_map', 'subTypeDisplay': '$Map'>
+
+props.bookIcon.keywords.IconSetEldritchPage = <'iconLabel': 'book_note', 'subTypeDisplay': '$Eldritch Page'>
+props.bookIcon.keywords.IconSetEldritchTome = <'iconLabel': 'book_tome', 'subTypeDisplay': '$Eldritch Tome'>
+props.bookIcon.keywords.IconSetBlackBook = <'iconLabel': 'book_tome', 'subTypeDisplay': '$Black Book'>
+props.bookIcon.keywords.IconSetElderScroll = <'iconLabel': 'misc_artifact', 'subTypeDisplay': '$Elder Scroll'>
+
+props.bookIcon.keywords.IconSetScroll = <'iconLabel': 'default_scroll', 'subTypeDisplay': '$Scroll'>
+
+props.bookIcon.keywords.IconSetCrafting = <'iconLabel': 'default_misc', 'subTypeDisplay': '-'>
+
+;props.bookIcon.keywords.IconSetSRTextTranslation = <'iconLabel': 'default_book', 'subTypeDisplay': '$Book'>
+
+
+;Ingredient
+props.ingredientIcon.propertiesToSet = <'iconLabel', 'subTypeDisplay'>
+props.ingredientIcon.filter = <'formType': Form.TYPE_INGREDIENT>
+props.ingredientIcon.keywords.IconSetIngredient = <'iconLabel': 'default_ingredient', 'subTypeDisplay': '$Ingredient'>
+
+props.ingredientIcon.keywords.IconSetIngredientVial = <'iconLabel': 'food_beer', 'subTypeDisplay': '$Ingredient'>
+props.ingredientIcon.keywords.IconSetIngredientBlood = <'iconLabel': 'food_beer', 'subTypeDisplay': '$Blood'>
+props.ingredientIcon.keywords.IconSetIngredientAnimal = <'iconLabel': 'misc_remains', 'subTypeDisplay': '$Ingredient'>
+
+props.ingredientIcon.keywords.IconSetSRElixir = <'iconLabel': 'default_potion', 'subTypeDisplay': '$Elixir'>
+
+
+;Key
+props.keyIcon.propertiesToSet = <'iconLabel', 'subTypeDisplay'>
+props.keyIcon.filter = <'formType': Form.TYPE_KEY>
+props.keyIcon.keywords.IconSetKey = <'iconLabel': 'default_key', 'subTypeDisplay': '$Key'>
+props.keyIcon.keywords.IconSetKeyHouse = <'iconLabel': 'key_house'>
+
+
+
+;Light
+props.lightIcon.propertiesToSet = <'iconLabel', 'subTypeDisplay'>
+props.lightIcon.filter = <'formType': Form.TYPE_LIGHT>
+props.lightIcon.keywords.IconSetLightTorch = <'iconLabel': 'misc_torch', 'subTypeDisplay': '$Torch'>
+
+props.lightIcon.keywords.IconSetLightLantern = <'iconLabel': 'misc_torch', 'subTypeDisplay': '$Lantern'>
+props.lightIcon.keywords.IconSetLightCandle = <'iconLabel': 'misc_torch', 'subTypeDisplay': '$Candle'>
+props.lightIcon.keywords.IconSetClutterCandles = <'iconLabel': 'misc_clutter', 'subTypeDisplay': '$Clutter'>
+
+
+
+;Misc
+props.miscIcon.propertiesToSet = <'iconLabel', 'subTypeDisplay'>
+props.miscIcon.filter = <'formType': Form.TYPE_MISC>
+props.miscIcon.keywords.IconSetMisc = <'iconLabel': 'default_misc', 'subTypeDisplay': '$Misc'>
+
+props.miscIcon.keywords.IconSetArtifactTO = <'subTypeDisplay': '$Artifact'>
+props.miscIcon.keywords.IconSetArtifact = <'iconLabel': 'misc_artifact', 'subTypeDisplay': '$Artifact'>
+props.miscIcon.keywords.IconSetArtifactAzura = <'iconLabel': 'soulgem_azura', 'subTypeDisplay': '$Artifact'>
+props.miscIcon.keywords.IconSetArtifactBottle = <'iconLabel': 'default_potion', 'subTypeDisplay': '$Artifact'>
+props.miscIcon.keywords.IconSetArtifactCrown = <'iconLabel': 'armor_circlet', 'subTypeDisplay': '$Artifact'>
+props.miscIcon.keywords.IconSetArtifactDaedric = <'iconLabel': 'armor_daedra', 'subTypeDisplay': '$Artifact'>
+props.miscIcon.keywords.IconSetArtifactGem = <'iconLabel': 'misc_gem', 'subTypeDisplay': '$Artifact'>
+props.miscIcon.keywords.IconSetArtifactKey = <'iconLabel': 'armor_daedra', 'subTypeDisplay': '$Artifact'>
+props.miscIcon.keywords.IconSetArtifactTroll = <'iconLabel': 'misc_trollskull', 'subTypeDisplay': '$Artifact'>
+
+props.miscIcon.keywords.IconSetClutter = <'iconLabel': 'misc_clutter', 'subTypeDisplay': '$Clutter'>
+props.miscIcon.keywords.IconSetClutterBook = <'iconLabel': 'default_book', 'subTypeDisplay': '$Clutter'>
+props.miscIcon.keywords.IconSetClutterBottle = <'iconLabel': 'default_potion', 'subTypeDisplay': '$Clutter'>
+props.miscIcon.keywords.IconSetClutterBottleTall = <'iconLabel': 'food_beer', 'subTypeDisplay': '$Clutter'>
+props.miscIcon.keywords.IconSetClutterChildToy = <'iconLabel': 'misc_clutter', 'subTypeDisplay': '$Toy'>
+props.miscIcon.keywords.IconSetClutterGame = <'iconLabel': 'misc_clutter', 'subTypeDisplay': '$Clutter'>
+props.miscIcon.keywords.IconSetClutterGameCard = <'iconLabel': 'misc_clutter', 'subTypeDisplay': '$Card'>
+props.miscIcon.keywords.IconSetClutterGameDice = <'iconLabel': 'misc_clutter', 'subTypeDisplay': '$Clutter'>
+props.miscIcon.keywords.IconSetClutterMetal = <'iconLabel': 'misc_ingot', 'subTypeDisplay': '$Clutter'>
+props.miscIcon.keywords.IconSetClutterTreasure = <'iconLabel': 'misc_clutter', 'subTypeDisplay': '$Treasure'>
+props.miscIcon.keywords.IconSetClutterTablewear = <'iconLabel': 'misc_clutter', 'subTypeDisplay': '$Tablewear'>
+
+props.miscIcon.keywords.IconSetFurnitureHouse = <'iconLabel': 'default_misc', 'subTypeDisplay': '$House Part'>
+props.miscIcon.keywords.IconSetFurnitureCampfire = <'iconLabel': 'default_misc', 'subTypeDisplay': '$Placeable'>
+props.miscIcon.keywords.IconSetFurniturePottery = <'iconLabel': 'default_misc', 'subTypeDisplay': '$Clutter'>
+props.miscIcon.keywords.IconSetFurnitureClutter = <'iconLabel': 'misc_clutter', 'subTypeDisplay': '$Clutter'>
+
+props.miscIcon.keywords.IconSetLightTorch = <'iconLabel': 'misc_torch', 'subTypeDisplay': '$Torch'>
+props.miscIcon.keywords.IconSetLightLantern = <'iconLabel': 'misc_torch', 'subTypeDisplay': '$Lantern'>
+props.miscIcon.keywords.IconSetLightCandle = <'iconLabel': 'misc_torch', 'subTypeDisplay': '$Candle'>
+props.miscIcon.keywords.IconSetClutterCandles = <'iconLabel': 'misc_clutter', 'subTypeDisplay': '$Clutter'>
+
+props.miscIcon.keywords.IconSetMaterial = <'iconLabel': 'misc_clutter', 'subTypeDisplay': '$MaterialType'>
+props.miscIcon.keywords.IconSetMaterialOre = <'iconLabel': 'misc_ore', 'subTypeDisplay': '$Ore'>
+props.miscIcon.keywords.IconSetMaterialOreHeartStone = <'iconLabel': 'misc_ore', 'subTypeDisplay': '$Ore'>
+props.miscIcon.keywords.IconSetMaterialOreStalhrim = <'iconLabel': 'misc_ore', 'subTypeDisplay': '$Ore'>
+props.miscIcon.keywords.IconSetMaterialIngot = <'iconLabel': 'misc_ingot', 'subTypeDisplay': '$Ingot'>
+props.miscIcon.keywords.IconSetMaterialMetal = <'iconLabel': 'misc_ingot', 'subTypeDisplay': '$MaterialType'>
+props.miscIcon.keywords.IconSetMaterialMetalScrap = <'iconLabel': 'misc_ingot', 'subTypeDisplay': '$MaterialType'>
+props.miscIcon.keywords.IconSetMaterialLeather = <'iconLabel': 'misc_leather', 'subTypeDisplay': '$Leather'>
+props.miscIcon.keywords.IconSetMaterialFurPlate = <'iconLabel': 'misc_leather', 'subTypeDisplay': '$Pelt'>
+props.miscIcon.keywords.IconSetMaterialStrips = <'iconLabel': 'misc_strips', 'subTypeDisplay': '$Strips'>
+props.miscIcon.keywords.IconSetMaterialFabric = <'iconLabel': 'misc_clutter', 'subTypeDisplay': '$MaterialType'>
+props.miscIcon.keywords.IconSetMaterialBrick = <'iconLabel': 'misc_ingot', 'subTypeDisplay': '$MaterialType'>
+props.miscIcon.keywords.IconSetMaterialStone = <'iconLabel': 'misc_ore', 'subTypeDisplay': '$MaterialType'>
+props.miscIcon.keywords.IconSetMaterialWood = <'iconLabel': 'misc_wood', 'subTypeDisplay': '$Wood'>
+props.miscIcon.keywords.IconSetMaterialBottle = <'iconLabel': 'default_potion', 'subTypeDisplay': '$MaterialType'>
+props.miscIcon.keywords.IconSetMaterialBottleTall = <'iconLabel': 'food_beer', 'subTypeDisplay': '$MaterialType'>
+props.miscIcon.keywords.IconSetMaterialStationary = <'iconLabel': 'misc_clutter', 'subTypeDisplay': '$MaterialType'>
+props.miscIcon.keywords.IconSetMaterialRemains = <'iconLabel': 'misc_remains', 'subTypeDisplay': '$MaterialType'>
+props.miscIcon.keywords.IconSetMaterialDye = <'iconLabel': 'misc_clutter', 'subTypeDisplay': '$Dye'>
+props.miscIcon.keywords.IconSetMaterialDyeBottle = <'iconLabel': 'default_potion', 'subTypeDisplay': '$Dye'>
+
+props.miscIcon.keywords.IconSetRelicTO = <'subTypeDisplay': '$Relic'>
+props.miscIcon.keywords.IconSetRelic = <'iconLabel': 'misc_artifact', 'subTypeDisplay': '$Relic'>
+props.miscIcon.keywords.IconSetRelicCoin = <'iconLabel': 'misc_gold', 'subTypeDisplay': '$Relic'>
+props.miscIcon.keywords.IconSetRelicCrown = <'iconLabel': 'misc_artifact', 'subTypeDisplay': '$Relic'>
+props.miscIcon.keywords.IconSetRelicDragonClaw = <'iconLabel': 'misc_dragonclaw', 'subTypeDisplay': '$ClawDragon'>
+props.miscIcon.keywords.IconSetRelicGem = <'iconLabel': 'misc_gem', 'subTypeDisplay': '$Relic'>
+props.miscIcon.keywords.IconSetRelicMetal = <'iconLabel': 'misc_ingot', 'subTypeDisplay': '$Relic'>
+props.miscIcon.keywords.IconSetRelicNote = <'iconLabel': 'book_note', 'subTypeDisplay': '$Relic'>
+props.miscIcon.keywords.IconSetRelicSoulGem = <'iconLabel': 'soulgem_full', 'subTypeDisplay': '$Relic'>
+props.miscIcon.keywords.IconSetRelicStone = <'iconLabel': 'misc_artifact', 'subTypeDisplay': '$Relic'>
+props.miscIcon.keywords.IconSetRelicRemains = <'iconLabel': 'misc_remains', 'subTypeDisplay': '$Relic'>
+props.miscIcon.keywords.IconSetRelicRemainsHide = <'iconLabel': 'misc_hide', 'subTypeDisplay': '$Relic'>
+props.miscIcon.keywords.IconSetRelicWood = <'iconLabel': 'misc_wood', 'subTypeDisplay': '$Relic'>
+
+props.miscIcon.keywords.IconSetRemains = <'iconLabel': 'misc_remains', 'subTypeDisplay': '$Remains'>
+props.miscIcon.keywords.IconSetRemainsHide = <'iconLabel': 'misc_hide', 'subTypeDisplay': '$Pelt'>
+props.miscIcon.keywords.IconSetRemainsChitin = <'iconLabel': 'misc_leather', 'subTypeDisplay': '$Chitin'>
+props.miscIcon.keywords.IconSetRemainsLeather = <'iconLabel': 'misc_leather', 'subTypeDisplay': '$Leather'>
+props.miscIcon.keywords.IconSetRemainsTroll = <'iconLabel': 'misc_trollskull', 'subTypeDisplay': '$Remains'>
+props.miscIcon.keywords.IconSetRemainsDragon = <'iconLabel': 'misc_dragonclaw', 'subTypeDisplay': '$Remains'>
+;props.miscIcon.keywords.IconSetRemainsBone = <'iconLabel': 'misc_remains', 'subTypeDisplay': '$Bones'>
+;props.miscIcon.keywords.IconSetRemainsSkull = <'iconLabel': 'misc_remains', 'subTypeDisplay': '$Bones'>
+
+props.miscIcon.keywords.IconSetSoulGem = <'iconLabel': 'misc_soulgem', 'subTypeDisplay': '$Soul Gem'>
+props.miscIcon.keywords.IconSetSoulGemFull = <'iconLabel': 'soulgem_full', 'subTypeDisplay': '$Soul Gem'>
+props.miscIcon.keywords.IconSetSoulGemPartial = <'iconLabel': 'soulgem_partial', 'subTypeDisplay': '$Soul Gem'>
+props.miscIcon.keywords.IconSetSoulGemEmpty = <'iconLabel': 'soulgem_empty', 'subTypeDisplay': '$Soul Gem'>
+props.miscIcon.keywords.IconSetSoulGemGrandFull = <'iconLabel': 'soulgem_grandfull', 'subTypeDisplay': '$Soul Gem'>
+props.miscIcon.keywords.IconSetSoulGemGrandPartial = <'iconLabel': 'soulgem_grandpartial', 'subTypeDisplay': '$Soul Gem'>
+props.miscIcon.keywords.IconSetSoulGemGrandEmpty = <'iconLabel': 'soulgem_grandempty', 'subTypeDisplay': '$Soul Gem'>
+props.miscIcon.keywords.IconSetSoulGemAzura = <'iconLabel': 'soulgem_azura', 'subTypeDisplay': '$Artifact'>
+props.miscIcon.keywords.IconSetSoulGemAzuraBroken = <'iconLabel': 'soulgem_azura', 'subTypeDisplay': '$Artifact'>
+props.miscIcon.keywords.IconSetMiscSoulGem = <'iconLabel': 'soulgem_empty', 'subTypeDisplay': '$Soul Gem'>
+props.miscIcon.keywords.IconSetMiscSoulGemFull = <'iconLabel': 'soulgem_full', 'subTypeDisplay': '$Soul Gem'>
+
+props.miscIcon.keywords.IconSetToolTO = <'subTypeDisplay': '$Tool'>
+props.miscIcon.keywords.IconSetTool = <'iconLabel': 'misc_clutter', 'subTypeDisplay': '$Tool'>
+props.miscIcon.keywords.IconSetToolMisc = <'iconLabel': 'default_misc', 'subTypeDisplay': '$Tool'>
+props.miscIcon.keywords.IconSetToolAlchemy = <'iconLabel': 'misc_clutter', 'subTypeDisplay': '$Tool'>
+props.miscIcon.keywords.IconSetToolEmbalming = <'iconLabel': 'misc_clutter', 'subTypeDisplay': '$Tool'>
+props.miscIcon.keywords.IconSetToolInstrument = <'iconLabel': 'misc_clutter', 'subTypeDisplay': '$Instrument'>
+props.miscIcon.keywords.IconSetToolLockpick = <'iconLabel': 'misc_lockpick', 'subTypeDisplay': '$Lockpick'>
+props.miscIcon.keywords.IconSetToolDagger = <'iconLabel': 'weapon_dagger', 'subTypeDisplay': '$Tool'>
+props.miscIcon.keywords.IconSetToolPole = <'iconLabel': 'weapon_quarterstaff', 'subTypeDisplay': '$Tool'>
+props.miscIcon.keywords.IconSetToolSpear = <'iconLabel': 'weapon_spear', 'subTypeDisplay': '$Tool'>
+props.miscIcon.keywords.IconSetToolCompass = <'iconLabel': 'misc_clutter', 'subTypeDisplay': '$Compass'>
+props.miscIcon.keywords.IconSetToolMap = <'iconLabel': 'book_map', 'subTypeDisplay': '$Map'>
+props.miscIcon.keywords.IconSetToolStationary = <'iconLabel': 'misc_clutter', 'subTypeDisplay': '$Tool'>
+
+props.miscIcon.keywords.IconSetWaterskin = <'iconLabel': 'misc_clutter', 'subTypeDisplay': '$Waterskin'>
+props.miscIcon.keywords.IconSetWaterskinEmpty = <'iconLabel': 'misc_clutter', 'subTypeDisplay': '$Waterskin'>
+props.miscIcon.keywords.IconSetWaterskinSalty = <'iconLabel': 'default_potion', 'subTypeDisplay': '$Waterskin'>
+
+props.miscIcon.keywords.IconSetCoin = <'iconLabel': 'misc_gold', 'subTypeDisplay': '$Coin'>
+props.miscIcon.keywords.IconSetCoinCopper = <'iconLabel': 'misc_gold', 'subTypeDisplay': '$Coin'>
+props.miscIcon.keywords.IconSetCoinSilver = <'iconLabel': 'misc_gold', 'subTypeDisplay': '$Coin'>
+props.miscIcon.keywords.IconSetCoinGold = <'iconLabel': 'misc_gold', 'subTypeDisplay': '$Coin'>
+
+props.miscIcon.keywords.IconSetMiscGem = <'iconLabel': 'misc_gem', 'subTypeDisplay': '$Gem'>
+
+;props.miscIcon.keywords.IconSetNoteDocumentCurrency = <'iconLabel': 'default_misc', 'subTypeDisplay': '$Misc'>
+
+props.miscIcon.keywords.IconSetCoinpurse = <'iconLabel': 'misc_goldsack', 'subTypeDisplay': '$Coinpurse'>
+
+
+
+props.miscIcon.keywords.IconSetBook = <'iconLabel': 'default_book', 'subTypeDisplay': '$Book'>
+props.miscIcon.keywords.IconSetBookNote = <'iconLabel': 'book_note', 'subTypeDisplay': '$Note'>
+props.miscIcon.keywords.IconSetBookDocument = <'iconLabel': 'default_book', 'subTypeDisplay': '$Document'>
+props.miscIcon.keywords.IconSetBookJournal = <'iconLabel': 'book_journal', 'subTypeDisplay': '$Journal'>
+props.miscIcon.keywords.IconSetNoteDocument = <'iconLabel': 'book_note', 'subTypeDisplay': '$Document'>
+
+props.miscIcon.keywords.IconSetScroll = <'iconLabel': 'default_scroll', 'subTypeDisplay': '$Scroll'>
+props.miscIcon.keywords.IconSetScrollArtifact = <'iconLabel': 'default_scroll', 'subTypeDisplay': '$Artifact'>
+
+props.miscIcon.keywords.IconSetPotion = <'iconLabel': 'default_potion', 'subTypeDisplay': '$Potion'>
+props.miscIcon.keywords.IconSetPotionStamina = <'iconLabel': 'potion_stam', 'subTypeDisplay': '$Potion'>
+props.miscIcon.keywords.IconSetPoison = <'iconLabel': 'potion_poison', 'subTypeDisplay': '$Poison'>
+
+props.miscIcon.keywords.IconSetFoodIngredient = <'iconLabel': 'default_food', 'subTypeDisplay': '$Foodstuff'>
+props.miscIcon.keywords.IconSetFoodIngredientSack = <'iconLabel': 'misc_goldsack', 'subTypeDisplay': '$Foodstuff'>
+props.miscIcon.keywords.IconSetDrinkIngredient = <'iconLabel': 'food_wine', 'subTypeDisplay': '$Foodstuff'>
+
+props.miscIcon.keywords.IconSetClothingChildBody = <'iconLabel': 'clothing_body', 'subTypeDisplay': '$Clothing'>
+props.miscIcon.keywords.IconSetJewelryRing = <'iconLabel': 'armor_ring', 'subTypeDisplay': '$Ring'>
+
+props.miscIcon.keywords.IconSetPouch = <'iconLabel': 'misc_goldsack', 'subTypeDisplay': '$Pouch'>
+
+props.miscIcon.keywords.IconSetIngredient = <'iconLabel': 'default_ingredient', 'subTypeDisplay': '$Misc'>
+props.miscIcon.keywords.IconSetIngredientAnimal = <'iconLabel': 'default_ingredient', 'subTypeDisplay': '$Misc'>
+
+;props.miscIcon.keywords.IconSetPackage = <'iconLabel': 'default_misc', 'subTypeDisplay': '$Package'>
+;props.miscIcon.keywords.IconSetPackageBag = <'iconLabel': 'misc_goldsack', 'subTypeDisplay': '$Package'>
+;props.miscIcon.keywords.IconSetPackageNote = <'iconLabel': 'default_scroll', 'subTypeDisplay': '$Package'>
+;props.miscIcon.keywords.IconSetPackageScroll = <'iconLabel': 'default_scroll', 'subTypeDisplay': '$Package'>
+;Package     Letter     Missive
+
+props.miscIcon.keywords.IconSetCrafting = <'iconLabel': 'default_misc', 'subTypeDisplay': '-'>
+
+props.miscIcon.keywords.IconSetSRThesis = <'iconLabel': 'default_scroll', 'subTypeDisplay': '$Thesis'>
+props.miscIcon.keywords.IconSetSRSolution = <'iconLabel': 'default_potion', 'subTypeDisplay': '$Solution'>
+
+props.miscIcon.keywords.IconSetSRTextAncient = <'iconLabel': 'default_book', 'subTypeDisplay': '$Artifact'>
+props.miscIcon.keywords.IconSetSRTextTranslation = <'iconLabel': 'default_book', 'subTypeDisplay': '$Book'>
+props.miscIcon.keywords.IconSetSRTextGrimoire = <'iconLabel': 'book_tome', 'subTypeDisplay': '$Artifact'>
+
+props.miscIcon.keywords.IconSetSRArtifact = <'iconLabel': 'misc_artifact', 'subTypeDisplay': '$Artifact'>
+props.miscIcon.keywords.IconSetSRArtifactWeapon = <'iconLabel': 'misc_artifact', 'subTypeDisplay': '$Artifact'>
+props.miscIcon.keywords.IconSetSRArtifactSoulGem = <'iconLabel': 'misc_artifact', 'subTypeDisplay': '$Artifact'>
+props.miscIcon.keywords.IconSetSRArtifactRemains = <'iconLabel': 'misc_remains', 'subTypeDisplay': '$Artifact'>
+;props.miscIcon.keywords.IconSetSRArtifactRemainsTroll = <'iconLabel': 'misc_trollskull', 'subTypeDisplay': '$Artifact'>
+
+
+
+
+
+
+
+
+
+;props.miscIcon.keywords.IconSetMiscGold = <'iconLabel': 'misc_gold', 'subTypeDisplay': '$Gold'>
+
+;props.miscIcon.keywords.IconSetPouch = <'iconLabel': 'misc_goldsack', 'subTypeDisplay': '$Bag'>
+
+;props.miscIcon.keywords.IconSetNote = <'iconLabel': 'book_note', 'subTypeDisplay': '$Note'>
+;props.miscIcon.keywords.IconSetBook = <'iconLabel': 'default_book', 'subTypeDisplay': '$Clutter'>
+;props.miscIcon.keywords.IconSetJournal = <'iconLabel': 'book_journal', 'subTypeDisplay': '$Book'>
+;props.miscIcon.keywords.IconSetScroll = <'iconLabel': 'default_scroll', 'subTypeDisplay': '$Note'>
+
+;props.miscIcon.keywords.IconSetIngredient = <'iconLabel': 'default_ingredient', 'subTypeDisplay': '$Ingredient'>
+;props.miscIcon.keywords.IconSetIngredientAnimal = <'iconLabel': 'misc_remains', 'subTypeDisplay': '$Ingredient'>
+
+;props.miscIcon.keywords.IconSetMiscPackage = <'iconLabel': 'default_misc', 'subTypeDisplay': '$Package'>
+;props.miscIcon.keywords.IconSetMiscPackageScroll = <'iconLabel': 'default_scroll', 'subTypeDisplay': '$Document'>
+
+;props.miscIcon.keywords.IconSetBookDocument = <'subTypeDisplay': '$Document'>
+;props.miscIcon.keywords.IconSetNoteDocument = <'iconLabel': 'book_note', 'subTypeDisplay': '$Document'>
+;props.miscIcon.keywords.IconSetNoteDocumentCurrency = <'iconLabel': 'book_note', 'subTypeDisplay': '$Currency'>
+
+;props.miscIcon.keywords.IconSetMiscFurPlate = <'iconLabel': 'misc_leather', 'subTypeDisplay': '$Fur Plate'>
+;props.miscIcon.keywords.IconSetMiscCard = <'iconLabel': 'misc_clutter', 'subTypeDisplay': '$Card'>
+
+
+;props.miscIcon.keywords.IconSetCrafting = <'iconLabel': 'default_misc', 'subTypeDisplay': '-'>
+
+;props.miscIcon.keywords.VendorItemFirewood = <'iconLabel': 'misc_wood', 'subTypeDisplay': '$Wood'>
+;props.miscIcon.keywords.ArmorMaterialLeather = <'iconLabel': 'misc_leather', 'subTypeDisplay': '$Leather'>
+;props.miscIcon.keywords.WAF_MaterialChitin = <'iconLabel': 'misc_leather', 'subTypeDisplay': '$Chitin'>
+;props.miscIcon.keywords.VendorItemTool = <'subTypeDisplay': '$Tool'>
+;props.miscIcon.keywords.BYOHHouseCraftingCategoryBuilding = <'subTypeDisplay': '$House Part'>
+;props.miscIcon.keywords.BYOHHouseCraftingCategorySmithing = <'subTypeDisplay': '$House Part'>
+;props.miscIcon.keywords.VendorItemFateCard = <'iconLabel': 'misc_clutter', 'subTypeDisplay': '$Card'>
+
+
+
+;Potions
+props.potionIcon.propertiesToSet = <'iconLabel', 'subTypeDisplay'>
+props.potionIcon.filter = <'formType': Form.TYPE_POTION>
+props.potionIcon.keywords.IconSetPotion = <'iconLabel': 'default_potion', 'subTypeDisplay': '$Potion'>
+props.potionIcon.keywords.IconSetFood = <'iconLabel': 'default_food', 'subTypeDisplay': '$Food'>
+props.potionIcon.keywords.IconSetDrink = <'iconLabel': 'food_wine', 'subTypeDisplay': '$Drink'>
+props.potionIcon.keywords.IconSetPoison = <'iconLabel': 'potion_poison', 'subTypeDisplay': '$Poison'>
+props.potionIcon.keywords.IconSetPotionHealth = <'iconLabel': 'potion_health', 'subTypeDisplay': '$Health'>
+props.potionIcon.keywords.IconSetPotionMagicka = <'iconLabel': 'potion_magic', 'subTypeDisplay': '$Magicka'>
+props.potionIcon.keywords.IconSetPotionStamina = <'iconLabel': 'potion_stam', 'subTypeDisplay': '$Stamina'>
+props.potionIcon.keywords.IconSetPotionResistFire = <'iconLabel': 'potion_fire', 'subTypeDisplay': '$Resist'>
+props.potionIcon.keywords.IconSetPotionResistShock = <'iconLabel': 'potion_shock', 'subTypeDisplay': '$Resist'>
+props.potionIcon.keywords.IconSetPotionResistFrost = <'iconLabel': 'potion_frost', 'subTypeDisplay': '$Resist'>
+
+
+props.potionIcon.keywords.IconSetFoodMeat = <'iconLabel': 'default_food', 'subTypeDisplay': '$Meat'>
+props.potionIcon.keywords.IconSetFoodFruit = <'iconLabel': 'default_food', 'subTypeDisplay': '$Food'>
+props.potionIcon.keywords.IconSetFoodVegetable = <'iconLabel': 'default_food', 'subTypeDisplay': '$Food'>
+props.potionIcon.keywords.IconSetFoodPastry = <'iconLabel': 'default_food', 'subTypeDisplay': '$Food'>
+props.potionIcon.keywords.IconSetFoodSweet = <'iconLabel': 'default_food', 'subTypeDisplay': '$Food'>
+
+props.potionIcon.keywords.IconSetFoodStew = <'iconLabel': 'default_food', 'subTypeDisplay': '$Stew'>
+props.potionIcon.keywords.IconSetFoodMeal = <'iconLabel': 'default_food', 'subTypeDisplay': '$Meal'>
+props.potionIcon.keywords.IconSetFoodIngredient = <'iconLabel': 'default_food', 'subTypeDisplay': '$Foodstuff'>
+props.potionIcon.keywords.IconSetFoodIngredientSack = <'iconLabel': 'misc_goldsack', 'subTypeDisplay': '$Foodstuff'>
+
+props.potionIcon.keywords.IconSetDrinkAlcohol = <'iconLabel': 'food_wine', 'subTypeDisplay': '$Alcohol'>
+props.potionIcon.keywords.IconSetDrinkAlcoholTall = <'iconLabel': 'food_beer', 'subTypeDisplay': '$Alcohol'>
+
+props.potionIcon.keywords.IconSetDrinkTall = <'iconLabel': 'food_beer', 'subTypeDisplay': '$Drink'>
+
+props.potionIcon.keywords.IconSetDrinkTea = <'iconLabel': 'food_wine', 'subTypeDisplay': '$Tea'>
+props.potionIcon.keywords.IconSetDrinkWater = <'iconLabel': 'food_wine', 'subTypeDisplay': '$Water'>
+props.potionIcon.keywords.IconSetDrinkIngredient = <'iconLabel': 'food_wine', 'subTypeDisplay': '$Foodstuff'>
+
+props.potionIcon.keywords.IconSetWaterskin = <'iconLabel': 'food_wine', 'subTypeDisplay': '$Waterskin'>
+props.potionIcon.keywords.IconSetWaterskinClean = <'iconLabel': 'food_wine', 'subTypeDisplay': '$Waterskin'>
+props.potionIcon.keywords.IconSetWaterskinDirty = <'iconLabel': 'default_potion', 'subTypeDisplay': '$Waterskin'>
+
+
+props.potionIcon.keywords.IconSetSkooma = <'iconLabel': 'food_beer', 'subTypeDisplay': '$Skooma'>
+props.potionIcon.keywords.IconSetTreeSap = <'iconLabel': 'potion_health', 'subTypeDisplay': '$Hist Sap'>
+
+props.potionIcon.keywords.IconSetPotionResistMisc = <'iconLabel': 'default_potion', 'subTypeDisplay': '$Resist'>
+props.potionIcon.keywords.IconSetPotionBlood = <'subTypeDisplay': '$Blood'>
+props.potionIcon.keywords.IconSetPotionCure = <'subTypeDisplay': '$Cure'>
+props.potionIcon.keywords.IconSetPotionArtifact = <'iconLabel': 'default_potion', 'subTypeDisplay': '$Artifact'>
+props.potionIcon.keywords.IconSetPotionWhitePhial = <'subTypeDisplay': '$Artifact'>
+
+
+
+;Scroll
+props.scrollIcon.propertiesToSet = <'iconLabel', 'subTypeDisplay'>
+props.scrollIcon.filter = <'formType': Form.TYPE_SCROLLITEM>
+props.scrollIcon.keywords.IconSetScroll = <'iconLabel': 'default_scroll', 'subTypeDisplay': '$Scroll'>
+
+props.scrollIcon.keywords.IconSetScrollAlteration = <'iconLabel': 'default_scroll', 'subTypeDisplay': '$Scroll'>
+props.scrollIcon.keywords.IconSetScrollConjuration = <'iconLabel': 'default_scroll', 'subTypeDisplay': '$Scroll'>
+props.scrollIcon.keywords.IconSetScrollDestruction = <'iconLabel': 'default_scroll', 'subTypeDisplay': '$Scroll'>
+props.scrollIcon.keywords.IconSetScrollIllusion = <'iconLabel': 'default_scroll', 'subTypeDisplay': '$Scroll'>
+props.scrollIcon.keywords.IconSetScrollRestoration = <'iconLabel': 'default_scroll', 'subTypeDisplay': '$Scroll'>
+
+props.scrollIcon.keywords.IconSetScrollSpider = <'iconLabel': 'misc_remains', 'subTypeDisplay': '$Spider'>
+props.scrollIcon.keywords.IconSetScrollArtifact = <'iconLabel': 'default_scroll', 'subTypeDisplay': '$Artifact'>
+
+
+
+;Soul Gem
+props.soulgemIcon.propertiesToSet = <'iconLabel', 'subTypeDisplay'>
+props.soulgemIcon.filter = <'formType': Form.TYPE_SOULGEM>
+;props.soulgemIcon.keywords.IconSetSoulGem = <'iconLabel': 'misc_soulgem', 'subTypeDisplay': '$Soul Gem'>
+;props.soulgemIcon.keywords.IconSetSoulGemFull = <'iconLabel': 'soulgem_full'>
+;props.soulgemIcon.keywords.IconSetSoulGemPartial = <'iconLabel': 'soulgem_partial'>
+;props.soulgemIcon.keywords.IconSetSoulGemEmpty = <'iconLabel': 'soulgem_empty'>
+;props.soulgemIcon.keywords.IconSetSoulGemGrandFull = <'iconLabel': 'soulgem_grandfull'>
+;props.soulgemIcon.keywords.IconSetSoulGemGrandPartial = <'iconLabel': 'soulgem_grandpartial'>
+;props.soulgemIcon.keywords.IconSetSoulGemGrandEmpty = <'iconLabel': 'soulgem_grandempty'>
+;props.soulgemIcon.keywords.IconSetSoulGemAzura = <'iconLabel': 'soulgem_azura'>
+
+;props.soulgemIcon.keywords.IconSetSoulGemAzura = <'iconLabel': 'soulgem_azura', 'subTypeDisplay': '$Artifact'>
+
+props.soulgemIcon.keywords.IconSetSoulGem = <'iconLabel': 'misc_soulgem', 'subTypeDisplay': '$Soul Gem'>
+props.soulgemIcon.keywords.IconSetSoulGemFull = <'iconLabel': 'soulgem_full', 'subTypeDisplay': '$Soul Gem'>
+props.soulgemIcon.keywords.IconSetSoulGemPartial = <'iconLabel': 'soulgem_partial', 'subTypeDisplay': '$Soul Gem'>
+props.soulgemIcon.keywords.IconSetSoulGemEmpty = <'iconLabel': 'soulgem_empty', 'subTypeDisplay': '$Soul Gem'>
+props.soulgemIcon.keywords.IconSetSoulGemGrandFull = <'iconLabel': 'soulgem_grandfull', 'subTypeDisplay': '$Soul Gem'>
+props.soulgemIcon.keywords.IconSetSoulGemGrandPartial = <'iconLabel': 'soulgem_grandpartial', 'subTypeDisplay': '$Soul Gem'>
+props.soulgemIcon.keywords.IconSetSoulGemGrandEmpty = <'iconLabel': 'soulgem_grandempty', 'subTypeDisplay': '$Soul Gem'>
+props.soulgemIcon.keywords.IconSetSoulGemAzura = <'iconLabel': 'soulgem_azura', 'subTypeDisplay': '$Artifact'>
+props.soulgemIcon.keywords.IconSetSoulGemAzuraBroken = <'iconLabel': 'soulgem_azura', 'subTypeDisplay': '$Artifact'>
+props.soulgemIcon.keywords.IconSetMiscSoulGem = <'iconLabel': 'soulgem_empty', 'subTypeDisplay': '$Soul Gem'>
+props.soulgemIcon.keywords.IconSetMiscSoulGemFull = <'iconLabel': 'soulgem_full', 'subTypeDisplay': '$Soul Gem'>
+
+props.soulgemIcon.keywords.AmmoTypeBullet = <'iconLabel': 'misc_goldsack', 'subTypeDisplay': '$Bullet'>
+props.soulgemIcon.dataMember1.filter = <'text': 'Pistol Bullets'>
+props.soulgemIcon.dataMember1.set = <'iconLabel': 'misc_goldsack', 'subTypeDisplay': '$Bullet'>
+
+
+;Weapons
+props.weaponIcon.propertiesToSet = <'iconLabel', 'subTypeDisplay'>
+props.weaponIcon.filter = <'formType': Form.TYPE_WEAPON>
+
+props.weaponIcon.keywords.IconSetWeapon = <'iconLabel': 'default_weapon'>
+props.weaponIcon.keywords.IconSetWeaponDaedra = <'iconLabel': 'weapon_daedra'>
+
+;props.weaponIcon.keywords.WeapTypeBattleaxe = <'iconLabel': 'weapon_battleaxe', 'subTypeDisplay': '$Battleaxe'>
+;props.weaponIcon.keywords.WeapTypeBow = <'iconLabel': 'weapon_bow', 'subTypeDisplay': '$Bow'>
+;props.weaponIcon.keywords.WeapTypeDagger = <'iconLabel': 'weapon_dagger', 'subTypeDisplay': '$Dagger'>
+;props.weaponIcon.keywords.WeapTypeGreatsword = <'iconLabel': 'weapon_greatsword', 'subTypeDisplay': '$Greatsword'>
+;props.weaponIcon.keywords.WeapTypeMace = <'iconLabel': 'weapon_mace', 'subTypeDisplay': '$Mace'>
+;props.weaponIcon.keywords.WeapTypeStaff = <'iconLabel': 'weapon_staff', 'subTypeDisplay': '$Staff'>
+;props.weaponIcon.keywords.WeapTypeSword = <'iconLabel': 'weapon_sword', 'subTypeDisplay': '$Sword'>
+;props.weaponIcon.keywords.WeapTypeWarAxe = <'iconLabel': 'weapon_waraxe', 'subTypeDisplay': '$War Axe'>
+;props.weaponIcon.keywords.WeapTypeWarhammer = <'iconLabel': 'weapon_hammer', 'subTypeDisplay': '$Warhammer'>
+;props.weaponIcon.keywords.WeapTypeCrossbow = <'iconLabel': 'weapon_crossbow', 'subTypeDisplay': '$Crossbow'>
+
+props.weaponIcon.keywords.WeapTypePickaxe = <'iconLabel': 'weapon_pickaxe', 'subTypeDisplay': '$Pickaxe'>
+props.weaponIcon.keywords.WeapTypeWoodAxe = <'iconLabel': 'weapon_woodaxe', 'subTypeDisplay': '$Wood Axe'>
+
+props.weaponIcon.keywords.WeapTypeClaw = <'iconLabel': 'weapon_claw', 'subTypeDisplay': '$Claw'>
+props.weaponIcon.keywords.WeapTypeGun = <'iconLabel': 'weapon_gun', 'subTypeDisplay': '$Gun'>
+props.weaponIcon.keywords.WeapTypeHalberd = <'iconLabel': 'weapon_halberd', 'subTypeDisplay': '$Halberd'>
+props.weaponIcon.keywords.WeapTypeJavelin = <'iconLabel': 'weapon_javelin', 'subTypeDisplay': '$Javelin'>
+props.weaponIcon.keywords.WeapTypeKatana = <'iconLabel': 'weapon_katana', 'subTypeDisplay': '$Katana'>
+props.weaponIcon.keywords.WeapTypePike = <'iconLabel': 'weapon_pike', 'subTypeDisplay': '$Pike'>
+props.weaponIcon.keywords.WeapTypeQuarterstaff = <'iconLabel': 'weapon_quarterstaff', 'subTypeDisplay': '$Quarterstaff'>
+props.weaponIcon.keywords.WeapTypeScythe = <'iconLabel': 'weapon_scythe', 'subTypeDisplay': '$Scythe'>
+props.weaponIcon.keywords.WeapTypeSpear = <'iconLabel': 'weapon_spear', 'subTypeDisplay': '$Spear'>
+props.weaponIcon.keywords.WeapTypeWhip = <'iconLabel': 'weapon_whip', 'subTypeDisplay': '$Whip'>
+
+;props.weaponIcon.keywords.WeapTypeRapier = <'iconLabel': 'weapon_rapier', 'subTypeDisplay': '$Rapier'>
+props.weaponIcon.keywords.WeapTypeRapier = <'iconLabel': 'weapon_rapier', 'subTypeDisplay': '$Saber'>
+;props.weaponIcon.keywords.WeapTypeCutlass = <'iconLabel': 'weapon_sword', 'subTypeDisplay': '$Cutlass'>
+props.weaponIcon.keywords.WeapTypeCutlass = <'iconLabel': 'weapon_sword', 'subTypeDisplay': '$Saber'>
+;props.weaponIcon.keywords.WeapTypeScimitar = <'iconLabel': 'weapon_sword', 'subTypeDisplay': '$Scimitar'>
+props.weaponIcon.keywords.WeapTypeScimitar = <'iconLabel': 'weapon_sword', 'subTypeDisplay': '$Saber'>
+props.weaponIcon.keywords.WeapTypeSaber = <'iconLabel': 'weapon_sword', 'subTypeDisplay': '$Saber'>
+
+props.weaponIcon.keywords.WeapTypeShortBow = <'iconLabel': 'weapon_bow', 'subTypeDisplay': '$Shortbow'>
+props.weaponIcon.keywords.WeapTypeLongBow = <'iconLabel': 'weapon_bow', 'subTypeDisplay': '$Longbow'>
+props.weaponIcon.keywords.WeapTypeGreatBow = <'iconLabel': 'weapon_bow', 'subTypeDisplay': '$Greatbow'>
+props.weaponIcon.keywords.WeapTypeBowBlade = <'iconLabel': 'weapon_bow', 'subTypeDisplay': '$Bowblade'>
+props.weaponIcon.keywords.WeapTypeSlingshot = <'iconLabel': 'weapon_bow', 'subTypeDisplay': '$Slingshot'>
+
+props.weaponIcon.keywords.WeapTypeBattleHammer = <'iconLabel': 'weapon_hammer', 'subTypeDisplay': '$Battle Hammer'>
+props.weaponIcon.keywords.WeapTypeClub = <'iconLabel': 'weapon_mace', 'subTypeDisplay': '$Club'>
+props.weaponIcon.keywords.WeapTypeHatchet = <'iconLabel': 'weapon_waraxe', 'subTypeDisplay': '$Hatchet'>
+props.weaponIcon.keywords.WeapTypeShiv = <'iconLabel': 'weapon_dagger', 'subTypeDisplay': '$Shiv'>
+props.weaponIcon.keywords.WeapTypeSickle = <'iconLabel': 'weapon_scythe', 'subTypeDisplay': '$Sickle'>
+props.weaponIcon.keywords.WeapTypeTanto = <'iconLabel': 'weapon_dagger', 'subTypeDisplay': '$Tanto'>
+props.weaponIcon.keywords.WeapTypeWarPick = <'iconLabel': 'weapon_pickaxe', 'subTypeDisplay': '$Warpick'>
+props.weaponIcon.keywords.WeapTypeWoodHatchet = <'iconLabel': 'weapon_woodaxe', 'subTypeDisplay': '$Wood Hatchet'>
+
+props.weaponIcon.keywords.WeapTypeThrown = <'subTypeDisplay': '$Throwing'>
+props.weaponIcon.keywords.WeapTypeThrownAxe = <'iconLabel': 'weapon_waraxe', 'subTypeDisplay': '$Throwing'>
+props.weaponIcon.keywords.WeapTypeThrownDagger = <'iconLabel': 'weapon_dagger', 'subTypeDisplay': '$Throwing'>
+props.weaponIcon.keywords.WeapTypeThrownJavelin = <'iconLabel': 'weapon_javelin', 'subTypeDisplay': '$Javelin'>
+props.weaponIcon.keywords.WeapTypeThrownExplosive = <'iconLabel': 'misc_clutter', 'subTypeDisplay': '$Bomb'>
+
+props.weaponIcon.keywords.WeapTypeTool = <'subTypeDisplay': '$Tool'>
+props.weaponIcon.keywords.WeapTypeToolDagger = <'iconLabel': 'weapon_dagger', 'subTypeDisplay': '$Tool'>
+props.weaponIcon.keywords.WeapTypeToolPole = <'iconLabel': 'weapon_quarterstaff', 'subTypeDisplay': '$Tool'>
+props.weaponIcon.keywords.WeapTypeToolSpear = <'iconLabel': 'weapon_spear', 'subTypeDisplay': '$Tool'>
+;props.weaponIcon.keywords.WeapTypeToolGlassCutter = <'iconLabel': 'weapon_dagger', 'subTypeDisplay': '$Glass Cutter'>
+;props.weaponIcon.keywords.WeapTypeToolHuntingKnife = <'iconLabel': 'weapon_dagger', 'subTypeDisplay': '$Hunting Knife'>
+;props.weaponIcon.keywords.WeapTypeToolScalpel = <'iconLabel': 'weapon_dagger', 'subTypeDisplay': '$Scalpel'>
+
+props.weaponIcon.keywords.IconSetMiscChildToy = <'iconLabel': 'weapon_sword', 'subTypeDisplay': '$Toy'>
+props.weaponIcon.keywords.IconSetMiscTablewear = <'iconLabel': 'weapon_dagger', 'subTypeDisplay': '$Tablewear'>
+
+props.weaponIcon.keywords.IconSetCrafting = <'iconLabel': 'default_misc', 'subTypeDisplay': '-'>
+
+
+
+
+
+
+;TEST
+props.testIcon.propertiesToSet = <'iconLabel', 'subTypeDisplay'>
+;props.testIcon.filter = <'formType': Form.TYPE_BOOK>
+
+;props.testIcon.keywords.TestKeyword = <'iconLabel': 'weapon_gun', 'subTypeDisplay': '$TEST'>
+;props.testIcon.keywords.TestKeyword = <'iconLabel': 'magic_fire', 'iconColor': '0x1FFBFF', 'subTypeDisplay': '$TEST'>
+
+;props.testIcon.dataMember1.filter = <'text': 'Dawnbreaker'>
+;props.testIcon.dataMember1.filter = <'formType': Form.TYPE_WEAPON>
+;props.testIcon.dataMember1.filter = <'isEquipped': true>
+;props.testIcon.dataMember1.filter = <'isRead': false>
+;props.testIcon.dataMember1.filter = <'weightClass': Armor.WEIGHT_LIGHT>
+;props.testIcon.dataMember1.filter = <'weightClass': 1>
+;props.testIcon.dataMember1.filter = <'weightClassDisplay': 'Other'>
+;props.testIcon.dataMember1.filter = <'subType': Weapon.TYPE_SWORD>
+;;;props.testIcon.dataMember1.filter = <'formType': Form.BASEID_DA01SOULGEMBLACKSTAR>
+;;;props.testIcon.dataMember1.filter = <'bipedSlots': Armor.EQUIP_SHIELD>
+;props.testIcon.dataMember1.filter = <'bipedSlotsDisplay': 39>
+;props.testIcon.dataMember1.filter = <'material': Material.HIDE>
+;props.testIcon.dataMember1.filter = <'materialDisplay': 'Pelt'>
+;props.testIcon.dataMember1.filter = <'infoDamage': 70>
+;props.testIcon.dataMember1.filter = <'infoBaseDamage': 33>
+;props.testIcon.dataMember1.filter = <'infoReach': 1>
+;props.testIcon.dataMember1.filter = <'infoSpeed': 1>
+;props.testIcon.dataMember1.filter = <'infoStagger': 1>
+;props.testIcon.dataMember1.filter = <'infoArmor': 25>
+;props.testIcon.dataMember1.filter = <>
+;props.testIcon.dataMember1.filter = <>
+;props.testIcon.dataMember1.filter = <>
+
+;props.testIcon.dataMember1.set = <'iconLabel': 'weapon_gun', 'iconColor': '0x1FFBFF', 'subTypeDisplay': '$TEST'>
+props.testIcon.dataMember1.set = <'iconLabel': 'weapon_gun', 'iconColor': '0x1FFBFF', 'subTypeDisplay': '$TEST', 'materialDisplay': '$TEST'>
+
+
+
+
+
+; =====================================================================================================================
+
+itemIcons = <defaultAmmoIcon, defaultArmorIcon, defaultBookIcon, defaultIngredientIcon, defaultKeyIcon, defaultLightIcon, defaultMiscIcon, defaultPotionIcon, defaultScrollIcon, defaultSoulgemIcon, defaultWeaponIcon, IJArmorIcon, IJMiscIcon, IJWeaponIcon, ammoIcon, armorIcon, bookIcon, ingredientIcon, keyIcon, lightIcon, miscIcon, potionIcon, scrollIcon, soulgemIcon, weaponIcon>
+
+;Test
+;itemIcons = <defaultAmmoIcon, defaultArmorIcon, defaultBookIcon, defaultIngredientIcon, defaultKeyIcon, defaultLightIcon, defaultMiscIcon, defaultPotionIcon, defaultScrollIcon, defaultSoulgemIcon, defaultWeaponIcon, IJArmorIcon, IJMiscIcon, IJWeaponIcon, ammoIcon, armorIcon, bookIcon, ingredientIcon, keyIcon, lightIcon, miscIcon, potionIcon, scrollIcon, soulgemIcon, weaponIcon, testIcon>
+
+; =====================================================================================================================
+
+
+;Default Spells
+;props.defaultMagicIcon.propertiesToSet = <'iconLabel'>
+;props.defaultMagicIcon.filter = <'formType': Form.ICT_SPELL>
+;props.defaultMagicIcon.keywords.IconSetMagicEffect = <'iconLabel': 'default_effect'>
+;props.defaultMagicIcon.keywords.IconSetMagicPower = <'iconLabel': 'default_power'>
+;props.defaultMagicIcon.keywords.IconSetMagicShout = <'iconLabel': 'default_shout'>
+;props.defaultMagicIcon.keywords.IconSetMagicAlteration = <'iconLabel': 'default_alteration'>
+;props.defaultMagicIcon.keywords.IconSetMagicConjuration = <'iconLabel': 'default_conjuration'>
+;props.defaultMagicIcon.keywords.IconSetMagicDestruction = <'iconLabel': 'default_destruction'>
+;props.defaultMagicIcon.keywords.IconSetMagicDestructionFire = <'iconLabel': 'magic_fire'>
+;props.defaultMagicIcon.keywords.IconSetMagicDestructionShock = <'iconLabel': 'magic_shock'>
+;props.defaultMagicIcon.keywords.IconSetMagicDestructionFrost = <'iconLabel': 'magic_frost'>
+;props.defaultMagicIcon.keywords.IconSetMagicIllusion = <'iconLabel': 'default_illusion'>
+;props.defaultMagicIcon.keywords.IconSetMagicRestoration = <'iconLabel': 'default_restoration'>
+
+;props.defaultMagicIcon.dataMember1.filter = <>
+;props.defaultMagicIcon.dataMember1.set = <>
+;props.defaultMagicIcon.dataMember2.filter = <>
+;props.defaultMagicIcon.dataMember2.set = <>
+;props.defaultMagicIcon.dataMember3.filter = <>
+;props.defaultMagicIcon.dataMember3.set = <>
+;props.defaultMagicIcon.dataMember4.filter = <>
+;props.defaultMagicIcon.dataMember4.set = <>
+;props.defaultMagicIcon.dataMember5.filter = <>
+;props.defaultMagicIcon.dataMember5.set = <>
+;props.defaultMagicIcon.dataMember6.filter = <>
+;props.defaultMagicIcon.dataMember6.set = <>
+;props.defaultMagicIcon.dataMember7.filter = <>
+;props.defaultMagicIcon.dataMember7.set = <>
+;props.defaultMagicIcon.dataMember8.filter = <>
+;props.defaultMagicIcon.dataMember8.set = <>
+;props.defaultMagicIcon.dataMember9.filter = <>
+;props.defaultMagicIcon.dataMember9.set = <>
+;props.defaultMagicIcon.dataMember10.filter = <>
+;props.defaultMagicIcon.dataMember10.set = <>
+;props.defaultMagicIcon.dataMember11.filter = <>
+;props.defaultMagicIcon.dataMember11.set = <>
+;props.defaultMagicIcon.dataMember12.filter = <>
+;props.defaultMagicIcon.dataMember12.set = <>
+
+
+
+; =====================================================================================================================
+
+;Alteration
+props.alterationIcon.propertiesToSet = <'iconLabel'>
+props.alterationIcon.filter = <'formType': Form.ICT_SPELL>
+props.alterationIcon.keywords.IconSetSpellAlteration = <'iconLabel': 'default_alteration'> ;brown color
+
+;props.alterationIcon.keywords.IconSetSpellAlterationNature = <'iconLabel': 'default_alteration'>
+
+;props.alterationIcon.keywords.IconSetSpellAlterationModify = <'iconLabel': 'default_alteration'>
+;props.alterationIcon.keywords.IconSetSpellAlterationCreate = <'iconLabel': 'default_alteration'>
+;props.alterationIcon.keywords.IconSetSpellAlterationManipulate = <'iconLabel': 'default_alteration'>
+;props.alterationIcon.keywords.IconSetSpellAlterationReality = <'iconLabel': 'default_alteration'>
+
+;props.alterationIcon.keywords.IconSetSpellAlterationModification = <'iconLabel': 'default_alteration'>
+;props.alterationIcon.keywords.IconSetSpellAlterationConstruct = <'iconLabel': 'default_alteration'>
+;props.alterationIcon.keywords.IconSetSpellAlterationForce = <'iconLabel': 'default_alteration'>
+;props.alterationIcon.keywords.IconSetSpellAlterationAbstract = <'iconLabel': 'default_alteration'>
+
+
+
+;Conjuration
+props.conjurationIcon.propertiesToSet = <'iconLabel'>
+props.conjurationIcon.filter = <'formType': Form.ICT_SPELL>
+props.conjurationIcon.keywords.IconSetSpellConjuration = <'iconLabel': 'default_conjuration'> ;purple color
+
+;props.conjurationIcon.keywords.IconSetSpellConjurationDaedric = <'iconLabel': 'default_conjuration'>
+;props.conjurationIcon.keywords.IconSetSpellConjurationNecromancy = <'iconLabel': 'default_conjuration'>
+;props.conjurationIcon.keywords.IconSetSpellConjurationBound = <'iconLabel': 'default_conjuration'>
+;props.conjurationIcon.keywords.IconSetSpellConjurationSoul = <'iconLabel': 'default_conjuration'>
+
+
+;Destruction
+props.destructionIcon.propertiesToSet = <'iconLabel', 'iconColor'>
+props.destructionIcon.filter = <'formType': Form.ICT_SPELL>
+props.destructionIcon.keywords.IconSetSpellDestruction = <'iconLabel': 'default_destruction'>
+props.destructionIcon.keywords.IconSetSpellDestructionFire = <'iconLabel': 'magic_fire', 'iconColor': '0xC73636'> ;red color
+props.destructionIcon.keywords.IconSetSpellDestructionShock = <'iconLabel': 'magic_shock', 'iconColor': '0xEAAB00'> ;yellow color
+props.destructionIcon.keywords.IconSetSpellDestructionFrost = <'iconLabel': 'magic_frost', 'iconColor': '0x1FFBFF'> ;blue color
+
+;props.destructionIcon.keywords.IconSetSpellDestructionAsh = <'iconLabel': 'default_destruction'> ;tan color
+
+;props.destructionIcon.keywords.IconSetSpellDestructionWater = <'iconLabel': 'default_destruction'> ;blue color
+
+;props.destructionIcon.keywords.IconSetSpellDestructionWind = <'iconLabel': 'default_destruction'> ;gray color
+
+;props.destructionIcon.keywords.IconSetSpellDestructionEarth = <'iconLabel': 'default_destruction'> ;brown color
+
+;props.destructionIcon.keywords.IconSetSpellDestructionPoison = <'iconLabel': 'default_destruction'> ;green color
+
+;props.destructionIcon.keywords.IconSetSpellDestructionSun = <'iconLabel': 'default_destruction'> ;yellow color
+;props.destructionIcon.keywords.IconSetSpellDestructionSunFire = <'iconLabel': 'magic_fire'>
+;props.destructionIcon.keywords.IconSetSpellDestructionSunShock = <'iconLabel': 'magic_shock'>
+;props.destructionIcon.keywords.IconSetSpellDestructionSunFireShock = <'iconLabel': 'magic_fire'>
+
+;props.destructionIcon.keywords.IconSetSpellDestructionShadow = <'iconLabel': 'default_destruction'> ;purple color
+;props.destructionIcon.keywords.IconSetSpellDestructionShadowFire = <'iconLabel': 'magic_fire'>
+
+;props.destructionIcon.keywords.IconSetSpellDestructionNature = <'iconLabel': 'default_destruction'> ;green color
+;props.destructionIcon.keywords.IconSetSpellDestructionNatureFire = <'iconLabel': 'magic_fire'>
+
+;props.destructionIcon.keywords.IconSetSpellDestructionBlood = <'iconLabel': 'default_destruction'> ;red color
+;props.destructionIcon.keywords.IconSetSpellDestructionBloodVL = <'iconLabel': 'default_destruction'>
+;props.destructionIcon.keywords.IconSetSpellDestructionBloodShock = <'iconLabel': 'magic_shock'>
+
+;props.destructionIcon.keywords.IconSetSpellDestructionRaw = <'iconLabel': 'default_destruction'>
+
+;props.destructionIcon.keywords.IconSetSpellDestructionFireCold = <'iconLabel': 'magic_fire', 'iconColor': '0x1FFBFF'> ;blue color
+
+;props.destructionIcon.keywords.IconSetSpellDestructionFireBlue = <'iconLabel': 'magic_fire'>
+;props.destructionIcon.keywords.IconSetSpellDestructionFirePurple = <'iconLabel': 'magic_fire'>
+
+
+
+
+
+
+
+
+;props.destructionIcon.dataMember1.filter = <'formType': Form.ICT_SPELL>
+;props.destructionIcon.dataMember1.filter = <'text': 'Coldharbour Bolt'>
+;props.destructionIcon.dataMember1.filter = <'infoSchoolName': Destruction>
+;props.destructionIcon.dataMember1.set = <'iconLabel': 'magic_fire', 'iconColor': '0x1FFBFF'>
+
+
+
+;Illusion
+props.illusionIcon.propertiesToSet = <'iconLabel'>
+props.illusionIcon.filter = <'formType': Form.ICT_SPELL>
+props.illusionIcon.keywords.IconSetSpellIllusion = <'iconLabel': 'default_illusion'> ;blue color
+
+;props.illusionIcon.keywords.IconSetSpellIllusionConcealing = <'iconLabel': 'default_illusion'>
+;props.illusionIcon.keywords.IconSetSpellIllusionOverwhelming = <'iconLabel': 'default_illusion'>
+;props.illusionIcon.keywords.IconSetSpellIllusionProjection = <'iconLabel': 'default_illusion'>
+;props.illusionIcon.keywords.IconSetSpellIllusionArcane = <'iconLabel': 'default_illusion'>
+
+
+
+;Restoration
+props.restorationIcon.propertiesToSet = <'iconColor'>
+props.restorationIcon.filter = <'formType': Form.ICT_SPELL>
+props.restorationIcon.keywords.IconSetSpellRestoration = <'iconLabel': 'default_restoration'> ;green color
+
+;props.restorationIcon.keywords.IconSetSpellRestorationPoison = <'iconLabel': 'default_restoration'> ;green color
+;props.restorationIcon.keywords.IconSetSpellRestorationSun = <'iconLabel': 'default_restoration'> ;yellow color
+;props.restorationIcon.keywords.IconSetSpellRestorationBlood = <'iconLabel': 'default_restoration'> ;red color
+
+
+
+
+;Power
+props.powerIcon.propertiesToSet = <'iconLabel'>
+props.powerIcon.filter = <'formType': Form.ICT_SPELL_DEFAULT>
+props.powerIcon.keywords.IconSetPower = <'iconLabel': 'default_power'>
+
+props.powerIcon.keywords.IconSetPowerLesser = <'iconLabel': 'default_power'>
+props.powerIcon.keywords.IconSetPowerGreater = <'iconLabel': 'default_power'>
+
+
+
+;Shout
+props.shoutIcon.propertiesToSet = <'iconLabel'>
+props.shoutIcon.filter = <'formType': Form.ICT_SHOUT>
+;props.shoutIcon.filter = <'formType': Form.TYPE_SHOUT>
+props.shoutIcon.keywords.IconSetPowerShout = <'iconLabel': 'default_shout'>
+
+
+
+;Effect
+props.effectIcon.propertiesToSet = <'iconLabel'>
+props.effectIcon.filter = <'formType': Form.ICT_ACTIVE_EFFECT>
+props.effectIcon.keywords.IconSetEffect = <'iconLabel': 'default_effect'>
+
+
+
+;TEST MAGIC
+
+
+props.testMagicIcon.propertiesToSet = <'iconLabel'>
+;props.testMagicIcon.filter = <'formType': Inventory.ICT_SPELL>
+;props.testMagicIcon.filter = <'infoSchoolName': Destruction>
+;props.testMagicIcon.keywords.TestKeyword = <'iconLabel': 'magic_fire', 'iconColor': '0x1FFBFF', 'subTypeDisplay': '$TEST'>
+;props.testMagicIcon.dataMember1.filter = <'magnitude': '60'>
+;props.testMagicIcon.dataMember1.filter = <'infoSchoolName': Destruction>
+;props.testMagicIcon.dataMember1.filter = <'skillLevel': 100>
+props.testMagicIcon.dataMember1.filter = <'infoCastLevel': 0>
+props.testMagicIcon.dataMember1.set = <'iconColor': '0x1FFBFF'>
+
+
+; =====================================================================================================================
+
+;magicIcons = <alterationIcon, conjurationIcon, destructionIcon, illusionIcon, restorationIcon, powerIcon, shoutIcon, effectIcon>
+
+;Test
+;magicIcons = <alterationIcon, conjurationIcon, destructionIcon, illusionIcon, restorationIcon, powerIcon, shoutIcon, effectIcon, testMagicIcon>
+
+; =====================================================================================================================
