@@ -1,0 +1,7 @@
+# TO APPLY NEW SETTINGS FROM JSON TYPE IN GAME IN CONSOLE: setstage FiE_Reload 0
+# After changing jsons validate it on: https://jsonformatter.curiousconcept.com
+
+
+FORMULA
+AV exp = (base actor value * exp from actor_av.json)
+EXP = (race exp + faction exp + AV exp) * (1+(level * coefByActorLevel from actor_av.json))

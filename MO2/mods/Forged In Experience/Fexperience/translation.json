@@ -1,0 +1,30 @@
+{
+	"Trainer level":"Рівень тренера",
+	"Learning points":"Learning points",
+	"Cost":"Cost",
+	"Gold":"Gold",
+	"Learn":"Learn",
+	"Exit":"Exit",
+	"levelup":"Level up",
+	
+	"Smithing":"Smithing",
+	"One-handed":"One-handed",
+	"Archery":"Archery",
+	"Block":"Block",
+	"Two-handed":"Two-handed",
+	"Heavy Armor":"Heavy Armor",
+	
+	"Alchemy":"Alchemy",
+	"Light Armor":"Light Armor",
+	"Lockpicking":"Lockpicking",
+	"Pickpocket":"Pickpocket",
+	"Sneak":"Sneak",
+	"Speech":"Speech",
+	
+	"Alteration":"Alteration",
+	"Conjuration":"Conjuration",
+	"Destruction":"Destruction",
+	"Enchanting":"Enchanting",
+	"Illusion":"Illusion",
+	"Restoration":"Restoration"
+}

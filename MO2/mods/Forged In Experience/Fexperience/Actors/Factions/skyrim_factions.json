@@ -1,0 +1,54 @@
+{
+	"valueModifier": 1,
+	"values": [
+		[ "__formData|Skyrim.esm|0x0001BCC0", 15, "Bandit faction" ],
+		[ "__formData|Skyrim.esm|0x000622E6", 15, "KarthwastenSilverFishGuards" ],
+		[ "__formData|Skyrim.esm|0x0001C9FC", 15, "CWImperialFactionNPC" ],
+		[ "__formData|Skyrim.esm|0x0001C9FD", 15, "CWSonsFactionNPC" ],
+		[ "__formData|Skyrim.esm|0x000215D3", 2, "MS08AlikrFaction" ],
+		[ "__formData|Skyrim.esm|0x00026724", 15, "WarlockFaction" ],
+		[ "__formData|Skyrim.esm|0x00028848", 15, "CrimeFactionImperial" ],
+		[ "__formData|Skyrim.esm|0x00028849", 15, "CrimeFactionSons" ],
+		[ "__formData|Skyrim.esm|0x0002A451", 15, "Aringoth Mercenary" ],
+		[ "__formData|Skyrim.esm|0x0002BF9A", 15, "CWImperialFaction" ],
+		[ "__formData|Skyrim.esm|0x0002BF9B", 15, "CWSonsFaction" ],
+		[ "__formData|Skyrim.esm|0x0002EB13", 15, "VampireThrallFaction" ],
+		[ "__formData|Skyrim.esm|0x00027242", 20, "VampireFaction" ],
+		[ "__formData|Skyrim.esm|0x00034B74", 17, "NecromancerFaction" ],
+		[ "__formData|Skyrim.esm|0x000C0637", 30, "MS09NorthwatchFaction" ],
+		[ "__formData|Skyrim.esm|0x00039F26", 15, "ThalmorFaction" ],
+		[ "__formData|Skyrim.esm|0x00043599", 20, "ForswornFaction" ],
+		[ "__formData|Skyrim.esm|0x000E3609", 20, "DruadachRedoubtFaction" ],
+		[ "__formData|Skyrim.esm|0x00043AB7", 30, "DA13AfflictedFaction" ],
+		[ "__formData|Skyrim.esm|0x00058B3D", 25, "MS08KematuFaction" ],
+		[ "__formData|Skyrim.esm|0x00068C8C", 15, "MS03ChaletGuardEnemyFaction" ],
+		[ "__formData|Skyrim.esm|0x0006BB1E", 15, "CWFortFaction" ],
+		[ "__formData|Skyrim.esm|0x00028508", 10, "ms06cultistscenefaction" ],
+		[ "__formData|Skyrim.esm|0x000B6C01", 20, "da02enemy" ],
+		[ "__formData|Skyrim.esm|0x00043598", 15, "Dwarven" ],
+		
+		[ "__formData|Skyrim.esm|0x00073543", 5, "dunYngvildFaction" ],
+		[ "__formData|Skyrim.esm|0x0007A509", 12, "DA16VaerminaDreamFaction" ],
+		[ "__formData|Skyrim.esm|0x0007A50A", 5, "DA16VaerminaHostileFaction" ],
+		[ "__formData|Skyrim.esm|0x00088EE4", 20, "MS07BanditFaction" ],
+		[ "__formData|Skyrim.esm|0x000A2CB0", 30, "DA01MalynVarenFaction" ],
+		[ "__formData|Skyrim.esm|0x000AA0A4", 25, "SilverHandFaction" ],
+		
+		[ "__formData|Skyrim.esm|0x000B3292", 20, "VigilantOfStendarrFaction" ],
+		[ "__formData|Skyrim.esm|0x000BC033", 20, "dunYsgramorsTombGhostFaction The Faction For Ghosts" ],
+		
+		[ "__formData|Skyrim.esm|0x000BA1E9", 25, "DA16OrcDreamFaction" ],
+		[ "__formData|Skyrim.esm|0x000C0160", 15, "dunMistwatchFaction" ],
+		[ "__formData|Skyrim.esm|0x000DEED5", 25, "TG09NightingaleEnemyFaction" ],
+		[ "__formData|Skyrim.esm|0x000a88c6", 15, "dunrunnvain" ],
+
+		[ "__formData|Skyrim.esm|0x000E16CA", 15, "DA16OrcAmbushFaction" ],
+		[ "__formData|Dawnguard.esm|0x020135BD", 20, "DLC1RuunvaldFaction" ],
+		[ "__formData|Dragonborn.esm|0x0402929A", 20, "DLC2MoragTongFaction" ],
+		[ "__formData|Dragonborn.esm|0x04034FBC", 30, "DLC2CultistFaction" ],
+		
+		[ "__formData|Skyrim.esm|0x0004359E", 10, "HagravenFaction" ],
+		[ "__formData|Skyrim.esm|0x000435A2", 2, "SabreCatFaction" ],
+		[ "__formData|Dragonborn.esm|0x040200E7", 30, "DLC2BendWillImmuneFaction" ]
+	]
+}

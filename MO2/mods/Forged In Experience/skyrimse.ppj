@@ -1,0 +1,21 @@
+<?xml version='1.0'?><!-- Game is either sse, tesv, or fo4 -->
+<PapyrusProject xmlns="PapyrusProject.xsd" 
+    Flags="TESV_Papyrus_Flags.flg" 
+    Game="sse" 
+    Output="Scripts" 
+    Optimize="false" 
+    Release="false" 
+    Final="false">
+    <Imports>
+        <Import>.\Scripts\Source</Import>
+        <Import>D:\Games\The Elder Scrolls V Skyrim - SE\Data\Scripts\Source</Import>
+        <Import>D:\Games\The Elder Scrolls V Skyrim - SE\MO2\mods\[RfaD] SkyUI_5_2_SE\scripts/source</Import>
+        <Import>D:\Games\The Elder Scrolls V Skyrim - SE\MO2\mods\[RfaD] Requiem - The Roleplaying Overhaul\scripts\source\requiem</Import>
+        <Import>D:\Games\The Elder Scrolls V Skyrim - SE\MO2\mods\Различные штуки полезные и фиксы\scripts\source</Import>
+        <Import>D:\Games\The Elder Scrolls V Skyrim - SE\MO2\mods\[RfaD] Requiem - The Roleplaying Overhaul\scripts\source\requiem\gamemechanics\playerscripts</Import>
+        <Import>D:\Games\The Elder Scrolls V Skyrim - SE\MO2\mods\[RfaD] Papyrus Extender SE\scripts\Source</Import>
+    </Imports>
+    <Folders>
+        <Folder>.\Scripts\Source</Folder>
+    </Folders>
+</PapyrusProject>

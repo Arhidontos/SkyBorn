@@ -1,0 +1,8 @@
+{
+	"coefByActorLevel": 0.05,
+	"valueModifier": 1,
+	"actorValues":[
+		[ "Health", 0.01],
+		[ "DamageResist", 0.005]
+	]
+}
