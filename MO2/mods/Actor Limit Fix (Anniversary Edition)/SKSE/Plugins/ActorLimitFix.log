@@ -1,0 +1,16 @@
+[2022-08-06 21:58:23] [Information] ActorLimitFix.cpp(17,28): Initializing...
+{
+	"fixes": {
+		"morphLimit": 128,
+		"moverLimit": 256,
+		"replaceStaticArray": true
+	}
+}
+[2022-08-06 21:58:23] [Information] ActorLimitFix.cpp(27,28): Initialized.
+{
+	"fixes": {
+		"morphLimit": 128,
+		"moverLimit": 256,
+		"replaceStaticArray": true
+	}
+}
