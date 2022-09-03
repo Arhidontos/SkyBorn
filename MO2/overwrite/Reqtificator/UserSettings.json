@@ -1,0 +1,8 @@
+{
+    "verboseLogging": false,
+    "mergeLeveledLists": true,
+    "mergeLeveledCharacters": true,
+    "mergeLeveledLists": true,
+    "actorVisualAutoMerge": true,
+    "raceVisualAutoMerge": true
+}

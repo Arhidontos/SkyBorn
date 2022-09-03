@@ -1,0 +1,593 @@
+18:25:07.432: Skyrim Special Edition Mod Organizer, according to the INI file, appears to be located in C:\Skyrim Anniversary Edition\MO2\
+18:25:07.432: MO Path: C:\Skyrim Anniversary Edition\MO2\
+18:25:07.432: Mod Organizer base files for Skyrim Special Edition found at C:\Skyrim Anniversary Edition\MO2\
+18:25:07.447: Mod Organizer profiles for Skyrim Special Edition are located at C:\Skyrim Anniversary Edition\MO2\Profiles
+18:25:07.447: MO Profiles folder: C:\Skyrim Anniversary Edition\MO2\Profiles
+18:25:08.222: Mod Organizer was detected and the user was politely asked to close it.
+18:25:08.227: User failed to close Mod Organizer. Initiating Draugr Apocalypse...
+18:25:08.228: Backing up INIs...
+18:25:08.229: Creating First Time Backup...
+18:25:08.236: Finished backing up any INI files.
+18:25:08.252: Applying mod-suggested INI tweaks.
+18:25:08.252: plugins.txt is located here: C:\Skyrim Anniversary Edition\MO2\Profiles\Default\plugins.txt
+18:25:08.252: plugins.txt is located here: C:\Skyrim Anniversary Edition\MO2\Profiles\Default\plugins.txt
+18:25:08.252: plugins.txt is located here: C:\Skyrim Anniversary Edition\MO2\Profiles\Default\plugins.txt
+18:25:08.252: plugins.txt is located here: C:\Skyrim Anniversary Edition\MO2\Profiles\Default\plugins.txt
+18:25:08.252: plugins.txt is located here: C:\Skyrim Anniversary Edition\MO2\Profiles\Default\plugins.txt
+18:25:08.252: plugins.txt is located here: C:\Skyrim Anniversary Edition\MO2\Profiles\Default\plugins.txt
+18:25:08.252: plugins.txt is located here: C:\Skyrim Anniversary Edition\MO2\Profiles\Default\plugins.txt
+18:25:08.252: plugins.txt is located here: C:\Skyrim Anniversary Edition\MO2\Profiles\Default\plugins.txt
+18:25:08.252: plugins.txt is located here: C:\Skyrim Anniversary Edition\MO2\Profiles\Default\plugins.txt
+18:25:08.252: Finished applying mod-suggested INI tweaks.
+18:25:08.285: INI files shall not be set to read-only.
+18:25:08.331: Framerate is set to 60.
+18:25:08.331: Screenshots will be saved in the "C:\Skyrim Anniversary Edition\" directory with a base filename of "ScreenShot"
+18:25:08.331: The screenshot index number has been set to 8.
+18:25:08.331: The maximum number of autosaves has been set to 3
+18:25:08.363: 1st Person Arrow Tilt-up Angle set to 2
+18:25:08.363: 3rd Person Arrow Tilt-up Angle set to 2.5
+18:25:08.363: 1st Person Bolt Tilt-up Angle set to 1
+18:25:08.378: Look sensitivity has been set to 0.0140.
+18:25:08.378: Cursor velocity has been set to 1.00.
+18:25:08.378: Mouse X scale set to 0.0200.
+18:25:08.378: Mouse Y scale set to 0.8500.
+18:25:08.378: Mouse Wheel Zoom Speed has been set to 0.80.
+18:25:08.385: The percentage of the screen that the console can fill has been set to 40%.
+18:25:08.385: The console text size has been set to 20.
+18:25:08.447: The resolution divider for screen space reflections has been set to 2.
+18:25:08.447: The resolution divider for screen space reflections has been set to 2.
+18:25:08.475: All fade distance settings will be multiplied by 1.00 in-game.
+18:25:08.476: The distance that objects can be seen has been set to 10.3.
+18:25:08.477: The distance that actors can be seen has been set to 9.1.
+18:25:08.479: The distance that items can be seen has been set to 5.0.
+18:25:08.479: The distance that grass can be seen has been set to 1381.
+18:25:08.479: The distance that light can be seen has been set to 4000.
+18:25:08.501: The grid that will be actively rendered and processed around the PC has been set to 5 by 5.
+18:25:08.501: Distant Object Detail Level 4 has been set to 15000.
+18:25:08.516: Distant Object Detail Level 16 has been set to 100000.
+18:25:08.532: Landscape LOD multiplier has been set to 0.500.
+18:25:08.532: Distant Object Detail Level 8 has been set to 25000.
+18:25:08.563: Gamma has been set to 1.0000.
+18:25:08.563: The global brightness boost modifier has been set to 0.0000.
+18:25:08.563: The global contrast boost modifier has been set to 0.0000.
+18:25:08.563: The global saturation boost modifier has been set to 0.0000.
+18:25:08.579: Grass density has been set to 20 (higher values produce less grass).
+18:25:08.579: Grass diversity has been set to 2.
+18:25:08.601: Snow sparkle density set to 0.85
+18:25:08.601: Snow sparkle size set to 6.00
+18:25:08.601: Snow rim lighting intensity set to 0.30
+18:25:08.617: Power of glossiness/rim lighting on objects set to 3.00
+18:25:08.617: Power of glossiness/rim lighting on landscape set to 2.00
+18:25:08.801: Contents of BethINI.ini:
+[General]
+sGameName=Skyrim Special Edition
+sRestartedFromSetupTab=0
+bCreationKit=0
+bModifyCustomINIs=1
+[Directories]
+sGamePath=C:\Skyrim Anniversary Edition\
+sSkyrim Special EditionGameSettingsPath=C:\Skyrim Anniversary Edition\MO2\Profiles\Default\
+sSkyrim Special EditionModOrganizerPath=C:\Skyrim Anniversary Edition\MO2\
+
+18:25:08.851: BethINI startup completed.
+18:25:09.233: No Error.
+18:25:09.233: This version is up to date!
+18:25:21.308: Refreshing GUI...
+18:25:21.325: The distance that objects can be seen has been set to 10.3.
+18:25:21.325: The distance that actors can be seen has been set to 9.1.
+18:25:21.325: The distance that items can be seen has been set to 5.0.
+18:25:21.325: The distance that grass can be seen has been set to 1381.
+18:25:21.356: The grid that will be actively rendered and processed around the PC has been set to 5 by 5.
+18:25:21.356: Grass density has been set to 20 (higher values produce less grass).
+18:25:21.356: Grass diversity has been set to 2.
+18:25:21.356: Look sensitivity has been set to 0.0140.
+18:25:21.372: Screenshots will be saved in the "C:\Skyrim Anniversary Edition\" directory with a base filename of "ScreenShot"
+18:25:21.372: The screenshot index number has been set to 8.
+18:25:21.372: Framerate is set to 60.
+18:25:21.388: The global brightness boost modifier has been set to 0.0000.
+18:25:21.391: The global contrast boost modifier has been set to 0.0000.
+18:25:21.391: The global saturation boost modifier has been set to 0.0000.
+18:25:21.391: Snow rim lighting intensity set to 0.30
+18:25:21.391: Power of glossiness/rim lighting on objects set to 3.00
+18:25:21.406: Power of glossiness/rim lighting on landscape set to 2.00
+18:25:21.406: Snow sparkle density set to 0.85
+18:25:21.422: Snow sparkle size set to 6.00
+18:25:21.422: The resolution divider for screen space reflections has been set to 2.
+18:25:21.422: 1st Person Arrow Tilt-up Angle set to 0.7
+18:25:21.422: 3rd Person Arrow Tilt-up Angle set to 2.5
+18:25:21.437: 1st Person Bolt Tilt-up Angle set to 0.7
+18:25:21.437: Cursor velocity has been set to 1.00.
+18:25:21.469: The maximum number of autosaves has been set to 3
+18:25:21.484: Mouse X scale set to 0.0200.
+18:25:21.484: Mouse Y scale set to 0.8500.
+18:25:21.484: Mouse Wheel Zoom Speed has been set to 10.00.
+18:25:21.484: The console text size has been set to 20.
+18:25:21.500: The percentage of the screen that the console can fill has been set to 40%.
+18:25:21.500: All fade distance settings will be multiplied by 1.00 in-game.
+18:25:21.522: Distant Object Detail Level 8 has been set to 25000.
+18:25:21.538: Landscape LOD multiplier has been set to 0.500.
+18:25:21.538: Gamma has been set to 1.0000.
+18:25:21.553: The distance that light can be seen has been set to 4000.
+18:25:21.553: Distant Object Detail Level 16 has been set to 100000.
+18:25:21.569: Distant Object Detail Level 4 has been set to 15000.
+18:25:22.506: GUI was refreshed.
+18:25:23.516: Recommended tweaks have been automatically applied.
+18:25:26.855: Decals are now enabled.
+18:25:28.512: Decal quantity set to Ultra.
+18:25:31.874: FOV changed to 1.
+18:25:31.959: FOV changed to 11.
+18:25:32.256: FOV changed to 110.
+18:25:38.579: Depth of field is now disabled.
+18:25:52.626: The detailed shadow distance has been set to 3500.
+18:25:54.484: The distance that shadows can be cast while outdoors has been set to 8000.
+18:25:58.788: The distance that objects can be seen has been set to 1.
+18:25:58.930: The distance that objects can be seen has been set to 15.
+18:26:00.838: The distance that actors can be seen has been set to 1.
+18:26:01.054: The distance that actors can be seen has been set to 15.
+18:26:01.710: The distance that items can be seen has been set to 1.
+18:26:01.808: The distance that items can be seen has been set to 15.
+18:26:03.633: The distance that grass can be seen has been set to 20272.
+18:26:04.946: The distance that grass can be seen has been set to 1.
+18:26:05.475: The distance that grass can be seen has been set to 18.
+18:26:05.726: The distance that grass can be seen has been set to 180.
+18:26:05.918: The distance that grass can be seen has been set to 1800.
+18:26:06.465: The distance that grass can be seen has been set to 18000.
+18:26:07.403: The distance that light can be seen has been set to 40000.
+18:26:11.505: The distance that flickering lights might be seen has been set to 8192.
+18:26:15.448: Object Detail Fade has been set to Medium Quality.
+18:26:19.618: Distant Object Detail has been set to BethINI Low Quality.
+18:26:19.630: Distant Object Detail Level 4 has been set to 16384.
+18:26:19.645: Distant Object Detail Level 16 has been set to 131072.
+18:26:19.661: Landscape LOD multiplier has been set to 1.000.
+18:26:19.676: Distant Object Detail Level 8 has been set to 32768.
+18:26:21.730: Distant Object Detail has been set to BethINI Medium Quality.
+18:26:21.746: Distant Object Detail Level 8 has been set to 81920.
+18:26:21.762: Landscape LOD multiplier has been set to 1.000.
+18:26:21.777: Distant Object Detail Level 16 has been set to 196608.
+18:26:21.777: Distant Object Detail Level 4 has been set to 32768.
+18:26:25.646: Grass density has been set to 1 (higher values produce less grass).
+18:26:25.800: Grass density has been set to 10 (higher values produce less grass).
+18:26:25.979: Grass density has been set to 100 (higher values produce less grass).
+18:26:28.916: Grass diversity has been set to 1.
+18:26:29.449: Grass diversity has been set to 15.
+18:26:34.425: Tree detail fade has been set to BethINI Medium.
+18:26:35.554: Tree animations are now disabled.
+18:26:36.280: Static tree model rendering is now enabled.
+18:26:38.413: Dynamic tree model rendering is now enabled.
+18:26:38.777: Skinned trees are now disabled.
+18:26:39.087: Static tree model rendering is now enabled.
+18:26:41.460: The improved snow shader is now enabled.
+18:26:43.080: Snow sparkles are now disabled.
+18:26:43.087: Snow rim lighting are now disabled.
+18:26:43.094: The improved snow shader is now disabled.
+18:26:43.587: Projected UV diffuse normals are now enabled.
+18:26:49.626: Ambient Occlusion is now enabled.
+18:26:57.152: Screen space reflections are now enabled.
+18:26:58.328: The resolution divider for screen space reflections has been set to 1.
+18:27:04.973: Deleting invalid settings...
+18:27:04.983: Invalid settings deleted.
+18:27:04.988: Controversial settings shall be sought out and questioned if found.
+18:27:04.989: Finished handling controversial settings.
+18:27:04.989: Correcting known harmful settings...
+18:27:04.989: Known harmful settings corrected.
+18:27:04.004: Running the Summary() function, which helps remove nonsense from the INI files.
+18:27:05.004: Summary Input INI:
+[Actor]
+bUseNavMeshForMovement=0
+
+[Archive]
+sResourceArchiveList=Skyrim - Misc.bsa, Skyrim - Shaders.bsa, Skyrim - Interface.bsa, Skyrim - Animations.bsa, Skyrim - Meshes0.bsa, Skyrim - Meshes1.bsa, Skyrim - Sounds.bsa
+sResourceArchiveList2=Skyrim - Voices_en0.bsa, Skyrim - Textures0.bsa, Skyrim - Textures1.bsa, Skyrim - Textures2.bsa, Skyrim - Textures3.bsa, Skyrim - Textures4.bsa, Skyrim - Textures5.bsa, Skyrim - Textures6.bsa, Skyrim - Textures7.bsa, Skyrim - Textures8.bsa, Skyrim - Patch.bsa
+bLoadArchiveInMemory=1
+sArchiveToLoadInMemoryList=Skyrim - Animations.bsa
+
+[Audio]
+fMusicDuckingSeconds=6.0
+fMusicUnDuckingSeconds=8.0
+fMenuModeFadeOutTime=3.0
+fMenuModeFadeInTime=1.0
+uMaxSizeForCachedSound=4096
+
+[Combat]
+fMagnetismStrafeHeadingMult=0.0
+fMagnetismLookingMult=0.0
+f1PArrowTiltUpAngle=0.7
+f3PArrowTiltUpAngle=2.5
+f1PBoltTiltUpAngle=0.7
+
+[Decals]
+uMaxSkinDecalPerActor=60
+
+[Display]
+fLightLODStartFade=3500.0
+fTreesMidLODSwitchDist=9999999.0000
+fFirstSliceDistance=3500
+fDynamicDOFFarBlur=0.4
+fDDOFFocusCenterweightExt=2
+fDOFMaxDepthParticipation=10000
+sScreenShotBaseName=C:\Skyrim Anniversary Edition\ScreenShot
+fLightLODRange=33856
+fGlobalBrightnessBoost=0.0000
+fGlobalContrastBoost=0.0000
+fGlobalSaturationBoost=0.0000
+fSparklesDensity=0.85
+fSparklesSize=6.00
+fSnowRimLightIntensity=0.30
+fSnowGeometrySpecPower=3.00
+fSnowNormalSpecPower=2.00
+bEnableLandFade=0
+fWaterSSRIntensity=0.5
+iLandscapeMultiNormalTilingFactor=1
+fDecalLifetime=300
+fDefaultWorldFOV=110
+bEnableSnowRimLighting=0
+
+[General]
+sLanguage=ENGLISH
+sTestFile1=Dawnguard.esm
+sTestFile2=HearthFires.esm
+sTestFile3=Dragonborn.esm
+uExterior Cell Buffer=36
+uGridsToLoad=5
+bBackgroundLoadVMData=1
+sIntroSequence=
+fFlickeringLightDistance=8192
+
+[GeneralWarnings]
+SGeneralMasterMismatchWarning=One or more plugins could not find the correct versions of the master files they depend on. Errors may occur during load or game play. Check the "Warnings.txt" file for more information.
+
+[Grass]
+bAllowCreateGrass=1
+bAllowLoadGrass=0
+fGrassMaxStartFadeDistance=7000.0000
+fGrassMinStartFadeDistance=0.0000
+fGrassFadeRange=11856
+iMinGrassSize=100
+iMaxGrassTypesPerTexure=15
+
+[Imagespace]
+iRadialBlurLevel=2
+
+[Launcher]
+bEnableFileSelection=1
+
+[LightingShader]
+fDecalLODFadeStart=0.45
+fDecalLODFadeEnd=0.5
+
+[Papyrus]
+fPostLoadUpdateTimeMS=2000
+bEnableLogging=0
+bEnableTrace=0
+bLoadDebugInformation=0
+bEnableProfiling=0
+[HAVOK]
+fMaxTime=0.01666667
+[SaveGame]
+iAutoSaveCount=3
+[Controls]
+fMouseHeadingSensitivityMax=0.0640
+fMouseHeadingXScale=0.0200
+fMouseHeadingYScale=0.8500
+fDialogueHardStopAngle1P=180
+fDialogueHardStopAngle3P=180
+fDialogueSoftStopAngle1P=150
+fDialogueSoftStopAngle3P=150
+[Camera]
+fMouseWheelZoomSpeed=10.00
+[Menu]
+iConsoleSizeScreenPercent=40
+iConsoleTextSize=20
+[LOD]
+fDistanceMultiplier=1.00
+[Interface]
+bShowTutorials=0
+uMaxCustomItemNameLength=64
+[MapMenu]
+fMapWorldYawRange=400
+fMapWorldMinPitch=0
+fMapWorldMaxPitch=90
+[Trees]
+fUpdateBudget=0
+bEnableTrees=0
+bEnableTreeAnimations=0
+
+18:27:05.020: Default Preset Location for Invalid Settings Auto-detection: C:\Skyrim Anniversary Edition\BethINI Standalone\Presets\Skyrim Special Edition\
+18:27:05.036: bAllowScreenshot (Display) was removed due to it being an invalid setting (not recognized by the game).
+18:27:05.070: fLightLODMaxStartFade (Display) was removed due to it being an invalid setting (not recognized by the game).
+18:27:05.070: fShadowLODMaxStartFade (Display) was removed due to it being an invalid setting (not recognized by the game).
+18:27:05.086: fSpecularLODMaxStartFade (Display) was removed due to it being an invalid setting (not recognized by the game).
+18:27:05.101: iShadowMapResolutionPrimary (Display) was removed due to it being an invalid setting (not recognized by the game).
+18:27:05.148: Summary of Changes was refreshed for Skyrim.
+18:27:05.148: Summary Input INI:
+[Display]
+fShadowDistance=8000
+iNumFocusShadow=1
+fInteriorShadowDistance=3000.0000
+ffocusShadowMapDoubleEveryXUnit=450.0000
+iShadowMapResolution=1024
+fDynamicDOFBlurMultiplier=0.8000
+fProjectedUVNormalDetailTilingScale=0.8000
+fProjectedUVDiffuseNormalTilingScale=0.2000
+bEnableProjecteUVDiffuseNormals=1
+bUseTAA=0
+bIndEnable=0
+bSAO_CS_Enable=0
+bToggleSparkles=0
+bSAOEnable=1
+bScreenSpaceReflectionEnabled=1
+bIBLFEnable=0
+bUse64bitsHDRRenderTarget=1
+iSaveGameScreenShotHeighWSt=192
+iSaveGameScreenShotWidthWS=320
+iSaveGameScreenShotHeight=192
+iSaveGameScreenShotWidth=256
+iShadowMaskQuarter=4
+bVolumetricLightingEnable=0
+iVolumetricLightingQuality=0
+bEnableImprovedSnow=0
+fLightLODStartFade=6144
+bFXAAEnabled=0
+fLeafAnimDampenDistEnd=4600.0000
+fLeafAnimDampenDistStart=3600.0000
+fTreesMidLODSwitchDist=8192
+fMeshLODFadePercentDefault=1.2000
+fMeshLODFadeBoundDefault=256.0000
+fMeshLODLevel2FadeTreeDistance=8192
+fMeshLODLevel1FadeTreeDistance=4096
+fMeshLODLevel2FadeDist=10240
+fMeshLODLevel1FadeDist=8192
+fGamma=1.0000
+bBorderless=1
+bFull Screen=1
+iSize H=1080
+iSize W=1920
+iScreenShotIndex=8
+bTreesReceiveShadows=1
+bUsePrecipitationOcclusion=0
+bDrawLandShadows=0
+iMaxSkinDecalsPerFrame=100
+iMaxDecalsPerFrame=250
+iNumSplits=2
+uBookRatio=2
+bForceCreateTarget=0
+iReflectionResolutionDivider=1
+iVSyncPresentInterval=1
+[Imagespace]
+bDoDepthOfField=0
+bLensFlare=0
+[General]
+fLightingOutputColourClampPostSpec=1.0000
+fLightingOutputColourClampPostEnv=1.0000
+fLightingOutputColourClampPostLit=1.0000
+iStoryManagerLoggingEvent=-1
+bEnableStoryManagerLogging=0
+uLargeRefLODGridSize=7
+bFreebiesSeen=1
+[MAIN]
+fSkyCellRefFadeDistance=150000.0000
+bGamepadEnable=1
+bCrosshairEnabled=1
+fHUDOpacity=1.0000
+bSaveOnPause=0
+bSaveOnTravel=1
+bSaveOnWait=1
+bSaveOnRest=1
+[Interface]
+fMouseCursorSpeed=1.00
+bDialogueSubtitles=1
+bGeneralSubtitles=1
+bShowCompass=1
+[GamePlay]
+bShowFloatingQuestMarkers=1
+bShowQuestMarkers=1
+iDifficulty=2
+[Controls]
+fMouseHeadingSensitivity=0.0140
+fGamepadHeadingSensitivity=0.6667
+bAlwaysRunByDefault=1
+bInvertYValues=0
+bGamePadRumble=1
+bUseKinect=0
+[Particles]
+iMaxDesired=750
+[SaveGame]
+fAutosaveEveryXMins=15.0000
+[AudioMenu]
+fAudioMasterVolume=1.0000
+fVal7=1.0000
+uID7=0
+fVal6=1.0000
+uID6=0
+fVal5=1.0000
+uID5=0
+fVal4=1.0000
+uID4=0
+fVal3=0.5000
+uID3=466532
+fVal2=0.8000
+uID2=554685
+fVal1=0.8000
+uID1=1007612
+fVal0=1.0000
+uID0=94881
+[Clouds]
+fCloudLevel2Distance=262144.0000
+fCloudLevel1Distance=32768.0000
+fCloudLevel0Distance=16384.0000
+fCloudNearFadeDistance=9000.0000
+[Water]
+bUseWaterDisplacements=1
+bUseWaterRefractions=1
+bUseWaterReflections=1
+bUseWaterDepth=1
+[TerrainManager]
+fTreeLoadDistance=12500.0000
+fBlockMaximumDistance=196608
+fBlockLevel1Distance=81920
+fBlockLevel0Distance=32768
+fSplitDistanceMult=1.000
+bShowLODInEditor=1
+[NavMesh]
+fObstacleAlpha=0.5000
+fCoverSideHighAlpha=0.8000
+fCoverSideLowAlpha=0.6500
+fEdgeFullAlpha=1.0000
+fEdgeHighAlpha=0.7500
+fEdgeLowAlpha=0.5000
+fTriangleFullAlpha=0.7000
+fTriangleHighAlpha=0.3500
+fTriangleLowAlpha=0.2000
+fLedgeBoxHalfHeight=25.0000
+fEdgeDistFromVert=10.0000
+fEdgeThickness=10.0000
+fPointSize=2.5000
+[Trees]
+bRenderSkinnedTrees=0
+uiMaxSkinnedTreesToRender=75
+[Grass]
+fGrassStartFadeDistance=6144
+fGrassMaxStartFadeDistance=6144
+fGrassMinStartFadeDistance=0
+[Decals]
+bSkinnedDecals=0
+bDecals=1
+uMaxSkinDecals=100
+uMaxDecals=350
+[LOD]
+fLODFadeOutMultSkyCell=1.0000
+fLODFadeOutMultObjects=15
+fLODFadeOutMultItems=15
+fLODFadeOutMultActors=15
+[Launcher]
+sD3DDevice="NVIDIA GeForce MX150"
+uLastAspectRatio=1
+[Bethesda.net]
+uPersistentUuidData3=3150774667
+uPersistentUuidData2=3169782216
+uPersistentUuidData1=4038675094
+uPersistentUuidData0=560552014
+
+18:27:05.170: Default Preset Location for Invalid Settings Auto-detection: C:\Skyrim Anniversary Edition\BethINI Standalone\Presets\Skyrim Special Edition\
+18:27:05.201: iMaxDecalsPerFrame (Decals) was removed due to it being an invalid setting (not recognized by the game).
+18:27:05.217: iMaxSkinDecalsPerFrame (Decals) was removed due to it being an invalid setting (not recognized by the game).
+18:27:05.338: iAdapter (Display) was removed due to it being an invalid setting (not recognized by the game).
+18:27:05.427: uLastAspectRatio (Launcher) was removed due to it being an invalid setting (not recognized by the game).
+18:27:05.471: Summary of Changes was refreshed for SkyrimPrefs.
+18:27:05.471: Summary of Changes for Base INI is:[Audio]
+uMaxSizeForCachedSound was changed from 262144 to 4096
+
+[Camera]
+fMouseWheelZoomSpeed was changed from 0.8000 to 10.00
+
+[Combat]
+f1PArrowTiltUpAngle was changed from 2.0000 to 0.7
+f1PBoltTiltUpAngle was changed from 1.0000 to 0.7
+
+[Controls]
+fDialogueHardStopAngle1P was changed from 45.0000 to 180
+fDialogueHardStopAngle3P was changed from 55.0000 to 180
+fDialogueSoftStopAngle1P was changed from 20.0000 to 150
+fDialogueSoftStopAngle3P was changed from 25.0000 to 150
+fMouseHeadingSensitivityMax was changed from 0.0500 to 0.0640
+
+[Display]
+bAllowScreenshot was removed due to it being an invalid setting (not recognized by the game).
+bEnableLandFade was changed from 1 to 0
+bEnableSnowRimLighting was changed from 1 to 0
+fDecalLifetime was changed from 30.0000 to 300
+fDefaultWorldFOV was changed from 80.0000 to 110
+fFirstSliceDistance was changed from 2000.0000 to 3500
+fLightLODMaxStartFade was removed due to it being an invalid setting (not recognized by the game).
+fLightLODRange was changed from 500.0000 to 33856
+fShadowLODMaxStartFade was removed due to it being an invalid setting (not recognized by the game).
+fSpecularLODMaxStartFade was removed due to it being an invalid setting (not recognized by the game).
+fWaterSSRIntensity was changed from 1.3000 to 0.5
+iLandscapeMultiNormalTilingFactor was changed from 4 to 1
+iShadowMapResolutionPrimary was removed due to it being an invalid setting (not recognized by the game).
+sScreenShotBaseName was changed from ScreenShot to C:\Skyrim Anniversary Edition\ScreenShot
+
+[General]
+bBackgroundLoadVMData was changed from 0 to 1
+fFlickeringLightDistance was changed from 1024.0000 to 8192
+sIntroSequence was changed from BGS_Logo.bik to
+
+[Grass]
+fGrassFadeRange was changed from 1000.0000 to 11856
+iMaxGrassTypesPerTexure was changed from 2 to 15
+iMinGrassSize was changed from 20 to 100
+
+[HAVOK]
+fMaxTime was changed from 0.0167 to 0.01666667
+
+[Interface]
+bShowTutorials was changed from 1 to 0
+uMaxCustomItemNameLength was changed from 32 to 64
+
+[MapMenu]
+fMapWorldMaxPitch was changed from 75.0000 to 90
+fMapWorldMinPitch was changed from 15.0000 to 0
+fMapWorldYawRange was changed from 80.0000 to 400
+
+[Papyrus]
+bEnableLogging was changed from 1 to 0
+bEnableTrace was changed from 1 to 0
+fPostLoadUpdateTimeMS was changed from 500.0 to 2000
+
+[Trees]
+bEnableTreeAnimations was changed from 1 to 0
+bEnableTrees was changed from 1 to 0
+fUpdateBudget was changed from 1.5000 to 0
+18:27:05.486: Summary of Changes for Prefs INI is:[Decals]
+bDecals was changed from 0 to 1
+iMaxDecalsPerFrame was removed due to it being an invalid setting (not recognized by the game).
+iMaxSkinDecalsPerFrame was removed due to it being an invalid setting (not recognized by the game).
+uMaxDecals was changed from 0 to 350
+uMaxSkinDecals was changed from 0 to 100
+
+[Display]
+bEnableProjecteUVDiffuseNormals was changed from 0 to 1
+bSAOEnable was changed from 0 to 1
+bScreenSpaceReflectionEnabled was changed from 0 to 1
+fLightLODStartFade was changed from 3500.0000 to 6144
+fMeshLODLevel1FadeDist was changed from 4000.0000 to 8192
+fMeshLODLevel1FadeTreeDistance was changed from 2844.0000 to 4096
+fMeshLODLevel2FadeDist was changed from 1600.0000 to 10240
+fMeshLODLevel2FadeTreeDistance was changed from 2048.0000 to 8192
+fShadowDistance was changed from 3000.0000 to 8000
+fTreesMidLODSwitchDist was changed from 9999999.0000 to 8192
+iAdapter was removed due to it being an invalid setting (not recognized by the game).
+iMaxDecalsPerFrame was changed from 100 to 250
+iMaxSkinDecalsPerFrame was changed from 25 to 100
+iReflectionResolutionDivider was changed from 2 to 1
+
+[Grass]
+fGrassMaxStartFadeDistance was changed from 7000.0000 to 6144
+fGrassStartFadeDistance was changed from 381.0000 to 6144
+
+[Imagespace]
+bDoDepthOfField was changed from 1 to 0
+
+[Launcher]
+uLastAspectRatio was removed due to it being an invalid setting (not recognized by the game).
+
+[LOD]
+fLODFadeOutMultActors was changed from 9.1000 to 15
+fLODFadeOutMultItems was changed from 5.0000 to 15
+fLODFadeOutMultObjects was changed from 10.3000 to 15
+
+[TerrainManager]
+fBlockLevel0Distance was changed from 15000.0000 to 32768
+fBlockLevel1Distance was changed from 25000.0000 to 81920
+fBlockMaximumDistance was changed from 100000.0000 to 196608
+fSplitDistanceMult was changed from 0.5000 to 1.000
+
+[Trees]
+bRenderSkinnedTrees was changed from 1 to 0
+uiMaxSkinnedTreesToRender was changed from 40 to 75
+18:27:05.502: Sorting INIs...
+18:27:05.502: Sorting C:\Skyrim Anniversary Edition\MO2\Profiles\Default\Skyrim.ini
+18:27:05.549: Sorting C:\Skyrim Anniversary Edition\MO2\Profiles\Default\SkyrimPrefs.ini
+18:27:05.732: Sorting C:\Skyrim Anniversary Edition\MO2\Profiles\Default\SkyrimCustom.ini
+18:27:05.773: INIs sorted.
+18:27:05.789: Your INI files were successfully saved.
